@@ -11,6 +11,8 @@ import AccountOutline from 'vue-material-design-icons/AccountOutline.vue';
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue';
 import AccountPlusOutline from 'vue-material-design-icons/AccountPlusOutline.vue';
 
+import MenuTtem from '@/components/MenuIten.vue';
+
 let showCreatePost = ref(false);
 </script>
 
@@ -61,6 +63,11 @@ let showCreatePost = ref(false);
           <img class="xl:hidden block w-[25px] mt-10 ml-[25px] mb-10 cursor-pointer" src="/insta-logo-small.png" >
           <img class="xl:block hidden w-[120px] mt-10 ml-6 cursor-pointer" src="/insta-logo.png" >
         </Link>
+        <div class="px-3">
+          <Link href="/">
+            <MenuItem iconString="Home" class="mb-4" />
+          </Link>
+        </div>
       </div>
     
     </div>
