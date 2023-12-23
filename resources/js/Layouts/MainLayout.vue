@@ -11,7 +11,7 @@ import AccountOutline from 'vue-material-design-icons/AccountOutline.vue';
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue';
 import AccountPlusOutline from 'vue-material-design-icons/AccountPlusOutline.vue';
 
-import MenuTtem from '@/components/MenuIten.vue';
+import MenuTtem from '@/components/MenuItem.vue';
 
 let showCreatePost = ref(false);
 </script>
