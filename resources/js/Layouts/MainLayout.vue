@@ -11,9 +11,15 @@ import AccountOutline from 'vue-material-design-icons/AccountOutline.vue';
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue';
 import AccountPlusOutline from 'vue-material-design-icons/AccountPlusOutline.vue';
 
-
+let showCreatePost = ref(false);
 </script>
 
 <template>
-    
+    <div id="MainLayout" class="bg-red-600">
+      <div>
+        MainLayout
+      </div>
+
+      <slot />
+    </div>
 </template>
