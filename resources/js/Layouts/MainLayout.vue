@@ -38,8 +38,30 @@ let showCreatePost = ref(false);
             "
             >
         </div>
+        <HeartOutline class="pl-4 pr-3" fillColor="000000" :size="27" />
       </div>
       </div>
       </div>
+      <div
+         v-if="$page.url !== '/'"
+         id="TopNavUser"
+         class="md:hidden fixed flex items-center justify-between z-30 w-full bg-white
+         h-[61px] border-b border-b-gray-300
+         "
+      >
+      <Link href="/" class="px-4">
+          <ChevronLeft :size="30" class="cursor-pointer" />
+      </Link>
+      <div class="font-extrabold text-lg">NAME HERE</div>
+      <AccountPlusOutline :size="30" class="cursor-pointer px-4" />
+      </div>
+      <div id="SideNav" class="fixed h-full bg-white xl:w-[280px] w-[80px] md:block hidden border-r border-r-gray-300">
+        
+        <Link>
+          <img class="xl:hidden block w-[25px] mt-10 ml-[25px] mb-10 cursor-pointer" src="/insta-logo-small.png" >
+          <img class="xl:block hidden w-[120px] mt-10 ml-6 cursor-pointer" src="/insta-logo.png" >
+        </Link>
+      </div>
+    
     </div>
 </template>
