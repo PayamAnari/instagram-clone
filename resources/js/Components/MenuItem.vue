@@ -37,7 +37,7 @@ if (iconString.value === 'Log out') icon = Menu;
         <img
         v-if="iconString === 'Profile'"
         :class="{'mr-1': iconString === 'Profile'}"
-        class="rounded-full ml-[2px] cursor-pointer"
+        class="rounded-full ml-[2px] w-[32px] cursor-pointer"
         src="https://picsum.photos/id/50/300/320"
         >
         <component v-else :is="icon" fillColor="000000" :size="36" />
