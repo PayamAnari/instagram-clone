@@ -87,6 +87,17 @@ let showCreatePost = ref(false);
             <slot />
            </main>
           </div>
+          <div v-if="$page.url === '/'" id="SuggestionsSection" class="lg:w-4/12 lg:block hidden text-black mt-10">
+             <Link href="/" class="flex items-center justify-between max-w-[300px]">
+                 <div class="flex items-center">
+                    <img class="rounded-full z-10 w-[58px] h-[58px]" src="https://picsum.photos/id/50/300/320">
+                    <div class="pl-4">
+                       <div class="text-black font-extrabold">NAME HERE</div>
+                       <div class="text-gray-500 font-extrabold text-sm">NAME HERE</div>
+                    </div>
+                  </div>
+             </Link>
+          </div>
         </div>
     </div>
 </template>
