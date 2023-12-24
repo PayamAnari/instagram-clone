@@ -71,6 +71,7 @@ let showCreatePost = ref(false);
           <MenuItem iconString="Explore" class="mb-4" />
           <MenuItem iconString="Messages" class="mb-4" />
           <MenuItem iconString="Notifications" class="mb-4" />
+          <MenuItem @click="$event => showCreatePost = true" iconString="Create" class="mb-4" />
           <MenuItem iconString="Profile" class="mb-4" />
         </div>
         <Link href="/" class="absolute bottom-0 px-3 w-full">
@@ -121,12 +122,27 @@ let showCreatePost = ref(false);
                       Follow
                     </button>
               </Link>
-              <div class="max-w-[300px] mt-5">
+            <div class="max-w-[300px] mt-5">
               <div class="text-sm text-gray-400">About Help Press API Jobs Privacy Terms Locations Language Meta Verified</div>
               <div class="text-left text-gray-400 mt-4">© 2023 INSTAGRAM FROM META</div>
-          </div>
-          </div>
-         
+             </div>
+          </div> 
+        </div>
+
+        <div id="BottomNav" class="fixed z-30 bottom-0 w-full md:hidden flex items-center justify-around bg-white border-t py-2 border-t-gray-300">
+           <Link href="/">
+              <HomeOutline fillColor="#000000" :size="33" class="cursor-pointer" />
+          </Link>
+          <Compass fillColor="#000000" :size="33" class="cursor-pointer" />
+          <SecondOutline fillColor="#000000" :size="33" class="cursor-pointer" />
+          <Plus @click="$event => showCreatePost = true" fillColor="#000000" :size="33" class="cursor-pointer" />
+          <AccountOutline fillColor="#000000" :size="33" class="cursor-pointer" />
+          <Link href="/">
+            <img
+            class="rounded-full w-[300px] cursor-pointer"
+            src="https://picsum.photos/id/50/300/320"
+            >
+          </Link>
         </div>
     </div>
 </template>
