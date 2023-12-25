@@ -12,6 +12,7 @@ import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue';
 import AccountPlusOutline from 'vue-material-design-icons/AccountPlusOutline.vue';
 
 import MenuItem from '@/components/MenuItem.vue';
+import CreatePostOverlay from '@/components/CreatePostOverlay.vue';
 
 let showCreatePost = ref(false);
 </script>
@@ -72,7 +73,9 @@ let showCreatePost = ref(false);
           <MenuItem iconString="Messages" class="mb-4" />
           <MenuItem iconString="Notifications" class="mb-4" />
           <MenuItem @click="$event => showCreatePost = true" iconString="Create" class="mb-4" />
-          <MenuItem iconString="Profile" class="mb-4" />
+          <Link href="/">
+            <MenuItem iconString="Profile" class="mb-4" />
+          </Link>
         </div>
         <Link href="/" class="absolute bottom-0 px-3 w-full">
             <MenuItem iconString="Log out" class="mb-4" />
@@ -134,15 +137,17 @@ let showCreatePost = ref(false);
               <HomeOutline fillColor="#000000" :size="33" class="cursor-pointer" />
           </Link>
           <Compass fillColor="#000000" :size="33" class="cursor-pointer" />
-          <SecondOutline fillColor="#000000" :size="33" class="cursor-pointer" />
+          <SendOutline fillColor="#000000" :size="33" class="cursor-pointer" />
           <Plus @click="$event => showCreatePost = true" fillColor="#000000" :size="33" class="cursor-pointer" />
           <AccountOutline fillColor="#000000" :size="33" class="cursor-pointer" />
           <Link href="/">
             <img
-            class="rounded-full w-[300px] cursor-pointer"
+            class="rounded-full w-[30px] cursor-pointer"
             src="https://picsum.photos/id/50/300/320"
             >
           </Link>
         </div>
     </div>
+
+    <CreatePostOverlay v-if="showCreatePost" @close="$event => showCreatePost = false" />
 </template>
