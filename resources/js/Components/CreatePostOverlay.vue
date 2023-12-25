@@ -24,6 +24,20 @@
       file: null,
     })
 
+    const getUploadedImage = (e) => {
+      form.file = e.target.files[0];
+      let extention = form.file.name.substring(form.file.name.lastIndexOf('.') + 1);
+
+      console.log(extention);
+
+      if(extention == 'png' || extention == 'jpg' || extention == 'jpeg') {
+        isValidFile.value = true
+
+      } else {
+        isValidFile.value = false
+      }
+    }
+
     const closeOverlay = () => {
       form.text = null
       form.file = null
@@ -43,6 +57,32 @@
          <div class="flex items-center justify-between w-full rounded-t-xl p-3 border-b border-b-gray-300">
             <ArrowLeft :size="30" fillColor="#000000" @click="$event => closeOverlay()"/>
                   <div class="text-lg font-extrabold">New reel</div>
+                  <button class="text-lg text-blue-500 hover:text-gray-900 font-extrabold">
+                    Share
+                  </button>
+            </div>
+            <div class="w-full md:flex h-[calc(100%-55px)] rounded-xl overflow-auto">
+               <div class="flex items-center bg-gray-100 w-full h-full overflow-hidden">
+                  <div v-if="!fileDisplay" class="flex flex-col items-center mx-auto">
+                     <label
+                     for="file"
+                     class="hover:bg-blue-700 bg-blue-500 rounded-lg p-2.5 text-white font-extrabold cursor-pointer"
+                     >
+                       Select From Computer
+                     </label>
+                     <input
+                     id="file"
+                     class="hidden"
+                     type="file"
+                     @input="$event => getUploadedImage($event)"
+                     >
+                     <div v-if="error && error.file" class="text-red-500 text-center p-2 font-extrabold">{{ error.file }}</div>
+                    <div v-if="!fileDisplay && isValidFile === false" class="text-red-500 text-center p-2 font-extrabold">
+                      File not accepted
+                    </div>
+                  </div>
+                  <img v-if="fileDisplay && isValidFile === true" class="min-w-[400px] mx-auto" :src="fileDisplay" >
+               </div>
             </div>
       </div>
   </div>
