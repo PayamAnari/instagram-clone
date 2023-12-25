@@ -35,7 +35,13 @@
 
       } else {
         isValidFile.value = false
+        return;
       }
+
+      fileDisplay.value = URL.createObjectURL(e.target.files[0]);
+      setTimeOut(() => {
+        document.getElementById('TextAreaSection').scrollIntoView({behavior: 'smooth'});
+      }, 300);
     }
 
     const closeOverlay = () => {
@@ -82,6 +88,14 @@
                     </div>
                   </div>
                   <img v-if="fileDisplay && isValidFile === true" class="min-w-[400px] mx-auto" :src="fileDisplay" >
+               </div>
+               <div id="TextAreaSection" class="max-w-[720px] w-full relative">
+                   <div class="flex items-center justify-between p-3">
+                      <div class="flex items-center">
+                         <img class="rounded-full w-[38px] h-[38px]" src="https://picsum.photos/id/50/300/320">
+                         <div class="ml-4 font-extrabold text=[15px]">NAME HERE</div>
+                      </div>
+                   </div>
                </div>
             </div>
       </div>
