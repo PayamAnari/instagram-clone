@@ -2,7 +2,7 @@
 import { ref, onMounted, toRefs } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import MainLayout from "@/Layouts/MainLayout.vue";
-import LikesSection from "@/components/LikesSection.vue";
+import LikesSection from "@/Components/LikesSection.vue";
 
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
@@ -72,7 +72,7 @@ onMounted(() => {
                 <img class="mx-auto w-full" src="https://picsum.photos/id/54/300/320" />
              </div>
 
-             <likeSection />
+             <LikesSection />
           </div>
      </div>
    </MainLayout>
