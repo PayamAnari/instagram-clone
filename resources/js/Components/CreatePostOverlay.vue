@@ -71,12 +71,12 @@
 </script>
 
 <template>
-  <div id="OverlaySection" class="fixed z-50 top-0 left-0 w-full h-screen bg-[#000000] bg-opacity-60 p-3">
-      <button class="absolute right-3 cursor-pointer" @click="$event => closeOverlay()">
-            <Close :size="27" fillColor="#ffffff" />
-      </button>
+    <div id="OverlaySection" class="fixed z-50 top-0 left-0 w-full h-screen bg-[#000000] bg-opacity-60 p-3">
+    <button class="absolute right-3 cursor-pointer" @click="closeOverlay()">
+            <Close :size="27" fillColor="#FFFFFF"/>
+        </button>
 
-      <div class="max-w-6xl h-[calc(100%-100px)] max-auto mt-10 bg-white rounded-xl">
+      <div class="max-w-6xl h-[calc(100%-100px)] mx-auto mt-10 bg-white rounded-xl">
          <div class="flex items-center justify-between w-full rounded-t-xl p-3 border-b border-b-gray-300">
             <ArrowLeft :size="30" fillColor="#000000" @click="$event => closeOverlay()"/>
                   <div class="text-lg font-extrabold">New reel</div>
