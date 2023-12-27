@@ -114,6 +114,18 @@ const getUploadedImage = (e) => {
                   <Grid :size="15" fillColor="#000000" class="cursor-pointer" />
                   <div class="ml-2 -mb-[1px] text-gray-900">POSTS</div>
                </div>
+               <div class="p-[17px] w-1/4 flex justify-center items-center ">
+                  <PlayBoxOutline :size="15" fillColor="#8E8E8E" class="cursor-pointer" />
+                  <div class="ml-2 -mb-[1px] text-gray-900">REELS</div>
+               </div>
+               <div class="p-[17px] w-1/4 flex justify-center items-center ">
+                  <BookmarkOutline :size="15" fillColor="#8E8E8E" class="cursor-pointer" />
+                  <div class="ml-2 -mb-[1px] text-gray-900">SAVED</div>
+               </div>
+               <div class="p-[17px] w-1/4 flex justify-center items-center ">
+                  <AccountBoxOutline :size="15" fillColor="#8E8E8E" class="cursor-pointer" />
+                  <div class="ml-2 -mb-[1px] text-gray-900">TAGGED</div>
+               </div>
             </div>
          </div>
        </div>
