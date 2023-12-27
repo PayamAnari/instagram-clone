@@ -29,9 +29,16 @@ let isHover = ref(false);
          <Heart fillColor="#FFFFFF" :size="30" />
          <div class="pl-1">3</div>
        </div>
+       <div class="flex items-center justify-center">
+         <Comment fillColor="#FFFFFF" :size="30" />
+         <div class="pl-1">5</div>
+       </div>
     </div>
 
    </div>
-
+   
+   <img class="aspect-square mx-auto z-0 object-cover cursor-pointer"
+   src="https://picsum.photos/id/123/800/800"
+   >
    </div>
 </template>
