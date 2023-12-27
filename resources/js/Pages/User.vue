@@ -91,6 +91,31 @@ const getUploadedImage = (e) => {
                <div class="text-gray-400 font-semibold -mt-1.5">following</div>             
              </div>
           </div>
+          <div class="w-full flex items-center justify-between border-t border-t-gray-300">
+             <div class="p-3 w-1/4 flex justify-center border-t border-t-gray-900">
+                <Grid :size="28" fillColor="#0095f6" class="cursor-pointer"/>
+             </div>
+             <div class="p-3 w-1/4 flex justify-center">
+                <PlayBoxOutline :size="28" fillColor="#8E8E8E" class="cursor-pointer"/>
+             </div>
+             <div class="p-3 w-1/4 flex justify-center">
+                <BookmarkOutline :size="28" fillColor="#8E8E8E" class="cursor-pointer"/>
+             </div>
+             <div class="p-3 w-1/4 flex justify-center">
+                <AccountBoxOutline :size="28" fillColor="#8E8E8E" class="cursor-pointer"/>
+             </div>
+          </div>
+       </div>
+
+       <div id="ContentSection" class="md:pr-1.5 lg:pl-0 md:pl-[90px]">
+         <div class="md:block mt-10 hidden border-t border-t-gray-300">
+            <div class="flex items-center justify-between max-w-[600px] mx-auto font-extrabold text-gray-400 text-[15px]">
+               <div class="p-[17px] w-1/4 flex justify-center items-center border-t border-t-gray-900">
+                  <Grid :size="15" fillColor="#000000" class="cursor-pointer" />
+                  <div class="ml-2 -mb-[1px] text-gray-900">POSTS</div>
+               </div>
+            </div>
+         </div>
        </div>
   </MainLayout>
 </template>
