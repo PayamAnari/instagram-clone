@@ -73,16 +73,29 @@ onMounted(() => {
              </div>
 
              <LikesSection />
+
+             <div class="text-black font-extrabold py-1">3 likes</div>
+             <div>
+                <span class="text-black font-extrabold">NAME HERE</span>
+                this is a some text here
+             </div>
+             <button class="text-gray-500 font-extrabold py-1">
+                 View all 4 commnets
+             </button>
+          </div>
+
+          <div class="pb-20">
+
           </div>
      </div>
    </MainLayout>
 </template>
 
 <style>
-.carousel__prev,
-.carousel__next,
-.carousel__prev:hover,
-.carousel__next:hover {
+  .carousel__prev,
+  .carousel__next,
+  .carousel__prev:hover,
+  .carousel__next:hover {
   color: rgb(49, 49, 49);
   background-color: rgb(255, 255, 255);
   border-radius: 100%;
