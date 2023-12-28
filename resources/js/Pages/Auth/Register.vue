@@ -23,11 +23,11 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Register" />
+        <img class="mx-auto pt-8 pb-6" width="200" src="/insta-logo.png">
+         <div class="text-gray-600 text-center font-extrabold text-[22px] mb-4">Sign up to see photos and videos from your friends</div>
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
-
                 <TextInput
                     id="name"
                     type="text"
@@ -36,14 +36,13 @@ const submit = () => {
                     required
                     autofocus
                     autocomplete="name"
+                    placeholder="Name"
                 />
 
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
             <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-
                 <TextInput
                     id="email"
                     type="email"
@@ -51,14 +50,13 @@ const submit = () => {
                     v-model="form.email"
                     required
                     autocomplete="username"
+                    placeholder="Email"
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
                 <TextInput
                     id="password"
                     type="password"
@@ -66,6 +64,7 @@ const submit = () => {
                     v-model="form.password"
                     required
                     autocomplete="new-password"
+                    placeholder="Password"
                 />
 
                 <InputError class="mt-2" :message="form.errors.password" />
