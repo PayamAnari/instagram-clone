@@ -15,14 +15,14 @@ let isHover = ref(false);
 
 <template>
    <div
-      @mouseenter="$event => isHover = true"
-      @mouseleave="$event => isHover =false"
+      @mouseenter="isHover = true"
+      @mouseleave="isHover =false"
       class="flex items-center justify-center cursor-pointer relative"
    >
    <div
-   v-if="isHover"
-   :class="isHover ? 'bg-black bg-opacity-40' : ''"
-   class="absolute w-full h-full z-50 flex items-center justify-around text-lg font-extrabold text-white "
+     v-if="isHover"
+     :class="isHover ? 'bg-black bg-opacity-40' : ''"
+     class=" absolute w-full h-full z-50 flex items-center justify-around text-lg font-extrabold text-white"
    >
     <div class="flex items-center justify-around w-[50%]">
        <div class="flex items-center justify-center">
@@ -37,8 +37,9 @@ let isHover = ref(false);
 
    </div>
    
-   <img class="aspect-square mx-auto z-0 object-cover cursor-pointer"
-   src="https://picsum.photos/id/123/800/800"
+   <img            
+     class="aspect-square mx-auto z-0 object-cover cursor-pointer"
+     src="https://picsum.photos/id/123/700/700"
    >
    </div>
 </template>

@@ -32,10 +32,7 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Log in" />
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
-        </div>
+          <img class="mx-auto pt-8 pb-10" width="200" src="/insta-logo.png">
 
         <form @submit.prevent="submit">
             <div>

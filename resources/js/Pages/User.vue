@@ -34,7 +34,7 @@ const getUploadedImage = (e) => {
 
   <MainLayout>
        <div class="pt-2 md:pt-6"></div>
-       <div class="max-w[800px] lg:ml-0 md:ml-[80px] px-4 w-[100vw]">
+       <div class="max-w[800px] xl:ml-[200px] lg:ml-0 md:ml-[80px] px-4 w-[100vw]">
           <div class="flex items-center md:justify-between">
              
             <label for="fileUser">
@@ -109,7 +109,7 @@ const getUploadedImage = (e) => {
           </div>
        </div>
 
-       <div id="ContentSection" class="md:pr-1.5 lg:pl-0 md:pl-[90px]">
+       <div id="ContentSection" class="md:pr-1.5 xl:pl-[200px] lg:pl-0 md:pl-[90px]">
          <div class="md:block mt-10 hidden border-t border-t-gray-300">
             <div class="flex items-center justify-between max-w-[600px] mx-auto font-extrabold text-gray-400 text-[15px]">
                <div class="p-[17px] w-1/4 flex justify-center items-center border-t border-t-gray-900">
