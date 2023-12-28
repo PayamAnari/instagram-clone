@@ -36,8 +36,6 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
-
                 <TextInput
                     id="email"
                     type="email"
@@ -46,14 +44,13 @@ const submit = () => {
                     required
                     autofocus
                     autocomplete="username"
+                    placeholder="Email"
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
                 <TextInput
                     id="password"
                     type="password"
@@ -61,10 +58,14 @@ const submit = () => {
                     v-model="form.password"
                     required
                     autocomplete="current-password"
+                    placeholder="password"
                 />
 
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
+            <PrimaryButton class="mt-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Log in
+                </PrimaryButton>
 
             <div class="block mt-4">
                 <label class="flex items-center">
@@ -82,9 +83,6 @@ const submit = () => {
                     Forgot your password?
                 </Link>
 
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
             </div>
         </form>
     </GuestLayout>
