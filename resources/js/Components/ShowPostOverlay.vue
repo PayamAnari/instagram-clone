@@ -19,6 +19,11 @@ const { post } = toRefs(props)
 
 defineEmits(['closeOverlay', 'addComment', 'updateLike', 'deleteSelected'])
 
+const textareaInput = (e) => {
+  textarea.value.style.height = "auto";
+  textarea.value.style.width = `${e.target.scrollWidth}px`;
+}
+
 </script>
 
 <template>
