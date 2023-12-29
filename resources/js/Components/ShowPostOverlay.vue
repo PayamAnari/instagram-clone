@@ -37,7 +37,7 @@ const textareaInput = (e) => {
     <div class="w-full md:flex h-full overflow-auto rounded-xl">
        <div class="flex items-center bg-black w-full">
           <img class="rounded-xl min-w-[400px] p-4 mx-auto" 
-           src="https://picsum.photos/id/54/800/820">
+           src="https://picsum.photos/id/54/600/620">
        </div>
 
        <div class="md:max-w-[500px] w-full relative">
@@ -46,7 +46,28 @@ const textareaInput = (e) => {
               <img class="rounded-full w-[30px] h-[30px]"
               src="https://picsum.photos/id/54/300/320">
               <div class="ml-4 font-extrabold text-[15px]">NAME HERE</div>
+              <div class="flex items-center text-[15px] text-gray-500">
+                <span class="-mt-5 ml-2 mr-[5px] text-[35px]">.</span>
+                <div>DATE HERE</div>
+              </div>
             </div>
+            <button>
+              <DotsHorizontal class="cursor-pointer" :size="27" />
+            </button>
+          </div>
+
+          <div class="overflow-y-auto h-[calc(100%-170px)]">
+             <div class="flex items-center justify-between p-3">
+                <div class="flex items-center relative">
+                   <img class="absolute -top-1 rounded-full w-[30px] h-[30px]"
+                    src="https://picsum.photos/id/54/600/620"
+                    >
+                    <div class="ml-14">
+                       <span class="text-[15px] font-extrabold mr-2">NAME HERE</span>
+                        <span class="text-[15px] text-gray-900">this is a some text here</span>
+                      </div>
+                </div>
+             </div>
           </div>
        </div>
     </div>
