@@ -32,5 +32,13 @@ const textareaInput = (e) => {
   <button class="absolute right-3" @click="$event => $emit('closeOverlay')">
      <Close :size="27" fillColor="#FFFFFF" />
   </button>
+
+  <div class="max-w-6xl h-[calc(100%-100px)] mx-auto mt-10 bg-white rounded-xl">
+    <div class="w-full md:flex h-full overflow-auto rounded-xl">
+       <div class="flex items-center bg-black w-full">
+          <img class="rounded-xl min-w-[400px] p-4 mx-auto" src="https://picsum.photos/id/54/300/320">
+       </div>
+    </div>
+  </div>
 </div>
 </template>

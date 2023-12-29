@@ -81,7 +81,9 @@ onMounted(() => {
                 <span class="text-black font-extrabold">NAME HERE</span>
                 this is a some text here
              </div>
-             <button class="text-gray-500 font-extrabold py-1">
+             <button 
+             @click="$event => openOverlay = true"
+             class="text-gray-500 font-extrabold py-1">
                  View all 4 comments
              </button>
           </div>
