@@ -36,7 +36,18 @@ const textareaInput = (e) => {
   <div class="max-w-6xl h-[calc(100%-100px)] mx-auto mt-10 bg-white rounded-xl">
     <div class="w-full md:flex h-full overflow-auto rounded-xl">
        <div class="flex items-center bg-black w-full">
-          <img class="rounded-xl min-w-[400px] p-4 mx-auto" src="https://picsum.photos/id/54/300/320">
+          <img class="rounded-xl min-w-[400px] p-4 mx-auto" 
+           src="https://picsum.photos/id/54/800/820">
+       </div>
+
+       <div class="md:max-w-[500px] w-full relative">
+          <div class="flex items-center justify-between p-3 border-b">
+            <div class="flex items-center">
+              <img class="rounded-full w-[30px] h-[30px]"
+              src="https://picsum.photos/id/54/300/320">
+              <div class="ml-4 font-extrabold text-[15px]">NAME HERE</div>
+            </div>
+          </div>
        </div>
     </div>
   </div>
