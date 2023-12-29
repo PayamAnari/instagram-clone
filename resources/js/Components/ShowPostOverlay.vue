@@ -12,7 +12,12 @@ let comment = ref("")
 let deleteType = ref(null)
 let id = ref(null)
 
+const user = usePage().props.auth.user
 
+const props = defineProps(['post'])
+const { post } = toRefs(props)
+
+defineEmits(['closeOverlay', 'addComment', 'updateLike', 'deleteSelected'])
 
 </script>
 
