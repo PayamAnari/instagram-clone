@@ -68,6 +68,43 @@ const textareaInput = (e) => {
                       </div>
                 </div>
              </div>
+             
+             <div class="p-3">
+                <div class="flex items-center justify-between">
+                   <div class="flex items-center">
+                     <img class="rounded-full w-[38px] h-[38px]"
+                     src="https://picsum.photos/id/54/600/620"
+                     >
+                     <div class="ml-4 font-extrabold text-[15px]">
+                        NAME HERE
+                        <span class="font-light text-gray-700 text-sm">DATE HERE</span>
+                     </div>
+                   </div>
+
+                   <DotsHorizontal class="cursor-pointer" :size="27" />
+                  
+                </div>
+
+                <div class="text-[13px] pl-[55px]">
+                    THIS COMMENT SECTION
+                </div>
+             </div>
+
+             <div class="pb-16 md:hidden"></div>
+          </div>
+          <LikesSection class="px-2 border-t mb-2"
+          />
+          <div class="absolute flex border bottom-0 w-full max-h-[200px] bg-white overflow-auto">
+            <EmoticonHappyOutline class="pl-3 pt-[10px]" :size="30" />
+            <textarea
+            ref="textarea"
+            :oninput="textareaInput"
+            v-model="comment"
+            placeholder="Add a comment..."
+            rows="1"
+            class="w-full border-0 mt-2 mb-2 text-sm z-50 focus:ring-0 text-gray-600 text-[18px]"
+            >
+            </textarea>
           </div>
        </div>
     </div>
