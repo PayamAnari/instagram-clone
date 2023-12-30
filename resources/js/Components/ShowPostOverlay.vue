@@ -3,6 +3,7 @@ import { ref, toRefs } from "vue";
 import { usePage } from "@inertiajs/vue3";
 
 import LikesSection from "@/Components/LikesSection.vue";
+import ShowPostOptionsOverlay from "@/Components/ShowPostOptionsOverlay.vue";
 
 import Close from 'vue-material-design-icons/Close.vue';
 import DotsHorizontal from 'vue-material-design-icons/DotsHorizontal.vue';
@@ -105,9 +106,16 @@ const textareaInput = (e) => {
             class="w-full border-0 mt-2 mb-2 text-sm z-50 focus:ring-0 text-gray-600 text-[18px]"
             >
             </textarea>
+            <button
+            v-if="comment"
+            class="text-blue-500 font-extrabold pr-4"
+            >
+              Post
+            </button>
           </div>
        </div>
     </div>
   </div>
 </div>
+<ShowPostOptionsOverlay v-if="deleteType" />
 </template>
