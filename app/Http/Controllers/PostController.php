@@ -7,21 +7,18 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $request->validate([
+            'file' => 'required|mimes:jpg,jpeg,png',
+            'text' => 'required',
+        ]);
+        $post = (new FileService)->updateFile($post, $request, 'post');
     }
 
 
