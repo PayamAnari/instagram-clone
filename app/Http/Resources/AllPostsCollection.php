@@ -39,6 +39,11 @@ class AllPostsCollection extends ResourceCollection
                   ];
         
                 }),
+                'user' => [
+                    'id' => $post->user->id,
+                    'name' => $post->user->name,
+                    'file' => $post->user->file,
+                ]
             ];
         });
     }

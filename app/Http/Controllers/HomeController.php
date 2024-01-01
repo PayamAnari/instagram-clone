@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Resources\AllPostsCollection;
 use App\Models\Post;
 use Inertia\Inertia;
 use App\Models\User;
+use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
