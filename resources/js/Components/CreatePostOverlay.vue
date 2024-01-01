@@ -28,10 +28,10 @@
       error.value.text = null
       error.value.file = null
 
-      router.post('/post', form, {
+      router.post('/posts', form, {
         forceFormData: true,
         preserveScroll: true,
-        noError: error => {
+        onError: errors => {
           errors && errors.text ? error.value.text = errors.text : ''
           errors && errors.file ? error.value.file = errors.file : ''
         },
