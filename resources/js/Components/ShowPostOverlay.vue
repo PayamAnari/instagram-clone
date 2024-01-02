@@ -45,14 +45,17 @@ const textareaInput = (e) => {
           <div class="flex items-center justify-between p-3 border-b">
             <div class="flex items-center">
               <img class="rounded-full w-[30px] h-[30px]"
-              src="https://picsum.photos/id/54/300/320">
-              <div class="ml-4 font-extrabold text-[15px]">NAME HERE</div>
+              :src="post.user.file">
+              <div class="ml-4 font-extrabold text-[15px]">{{ post.user.name }}</div>
               <div class="flex items-center text-[15px] text-gray-500">
                 <span class="-mt-5 ml-2 mr-[5px] text-[35px]">.</span>
-                <div>DATE HERE</div>
+                <div>{{ post.created_at }}</div>
               </div>
             </div>
-            <button>
+            <button
+            v-if="user.id === post.user.id"
+            @click="deleteType = 'Post'; id = post.id"
+            >
               <DotsHorizontal class="cursor-pointer" :size="27" />
             </button>
           </div>
@@ -61,39 +64,53 @@ const textareaInput = (e) => {
              <div class="flex items-center justify-between p-3">
                 <div class="flex items-center relative">
                    <img class="absolute -top-1 rounded-full w-[30px] h-[30px]"
-                    src="https://picsum.photos/id/54/600/620"
+                    :src="post.user.file"
                     >
                     <div class="ml-14">
-                       <span class="text-[15px] font-extrabold mr-2">NAME HERE</span>
-                        <span class="text-[15px] text-gray-900">this is a some text here</span>
+                       <span class="text-[15px] font-extrabold mr-2">{{ post.user.name }}</span>
+                        <span class="text-[15px] text-gray-900">{{  post.text  }}</span>
                       </div>
                 </div>
              </div>
              
-             <div class="p-3">
+             <div 
+             v-if="post.comments"
+             class="p-3"
+             v-for="comment in post.comments"
+             :key="comment" 
+             >
                 <div class="flex items-center justify-between">
                    <div class="flex items-center">
                      <img class="rounded-full w-[38px] h-[38px]"
-                     src="https://picsum.photos/id/54/600/620"
+                     :src="comment.user.file"
                      >
                      <div class="ml-4 font-extrabold text-[15px]">
-                        NAME HERE
-                        <span class="font-light text-gray-700 text-sm">DATE HERE</span>
+                        {{ comment.user.name }}
+                        <span class="font-light text-gray-700 text-sm">{{ post.created_at }}</span>
                      </div>
                    </div>
 
-                   <DotsHorizontal class="cursor-pointer" :size="27" />
+                   <DotsHorizontal 
+                   v-if="user_id === comment.user.id"
+                   class="cursor-pointer"
+                   @click="deleteType = 'Comment'; id = comment.id"
+                    :size="27"
+                     />
                   
                 </div>
 
                 <div class="text-[13px] pl-[55px]">
-                    THIS COMMENT SECTION
+                    {{ comment.text }}
                 </div>
              </div>
 
              <div class="pb-16 md:hidden"></div>
           </div>
-          <LikesSection class="px-2 border-t mb-2"
+          <LikesSection 
+          v-if="post"
+          class="px-2 border-t mb-2"
+          :post="post"
+          @like="$emit('updateLike', $event)"
           />
           <div class="absolute flex border bottom-0 w-full max-h-[200px] bg-white overflow-auto">
             <EmoticonHappyOutline class="pl-3 pt-[10px]" :size="30" />
@@ -109,6 +126,9 @@ const textareaInput = (e) => {
             <button
             v-if="comment"
             class="text-blue-500 font-extrabold pr-4"
+            @click="$emit('addComment', { post, user, comment });
+            comment=''
+            "
             >
               Post
             </button>
