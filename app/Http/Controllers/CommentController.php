@@ -26,6 +26,8 @@ class CommentController extends Controller
       $comment->post_id = $request->input('post_id');
       $comment->user_id = $request->input('user_id');
       $comment->text = $request->input('comment');
+
+      $comment->save();
     }
 
 
@@ -34,6 +36,7 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+        $comment->delete();
     }
 }
