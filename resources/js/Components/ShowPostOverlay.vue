@@ -137,5 +137,19 @@ const textareaInput = (e) => {
     </div>
   </div>
 </div>
-<ShowPostOptionsOverlay v-if="deleteType" />
+<ShowPostOptionsOverlay 
+v-if="deleteType" 
+:deleteType="deleteType"
+:id="id"
+@deleteSelected="$emit('deleteSelected', {
+  deleteType: $event.deleteType,
+  id: $event.id,
+  post:post,
+})
+deleteType = null;
+id=null;
+"
+@close="deleteType = null; 
+id=null"
+/>
 </template>
