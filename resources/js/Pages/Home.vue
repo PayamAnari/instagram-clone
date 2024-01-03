@@ -26,6 +26,26 @@ onMounted(() => {
     })
 })
 
+const addComment = (object) => {
+  router.post('/comment', {
+    post_id: object.post.id,
+    user_id: object.user.id,
+    comment: object.comment
+  }, {
+      onFinish: () => updatedPost(object),
+  }
+  )
+}
+
+const updatePost = (object => {
+   for (let i = 0; i < posts.value.data.length; i++) {
+    const post = post.value.data[i];
+    if (post.id === object.post.id) {
+      currentPost.value = post
+    }
+   }
+})
+
 </script>
 
 <template>
@@ -79,7 +99,7 @@ onMounted(() => {
              @like="$event => updateLike($event)"
              />
 
-             <div class="text-black font-extrabold py-1">{{ post.likes?.length }} likes</div>
+             <div class="text-black font-extrabold py-1">{{ post.likes.length }} likes</div>
              <div>
                 <span class="text-black font-extrabold">{{ post.user.name }}</span>
                 {{  post.text  }}
@@ -100,7 +120,10 @@ onMounted(() => {
    <ShowPostOverlay 
       v-if="openOverlay"
       :post="currentPost"
-      @closeOverlay="$event => openOverlay = false"
+      @addComment="addComment($event)"
+      @updateLike="updateLike($event)"
+      @deleteSelected="deleteFunc($event); openOverlay = false"
+      @closeOverlay="openOverlay = false"
    />
 </template>
 
