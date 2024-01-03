@@ -39,7 +39,7 @@ let isHover = ref(false);
    
    <img            
      class="aspect-square mx-auto z-0 object-cover cursor-pointer"
-     src="https://picsum.photos/id/123/700/700"
+     :src="postByUser.file"
    >
    </div>
 </template>
