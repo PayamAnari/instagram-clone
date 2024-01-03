@@ -112,12 +112,12 @@ let showCreatePost = ref(false);
                 </button>
               </div>
               <div v-for="randUser in $page.props.randomUsers" :key="randUser">
-                <Link href="/" class="flex items-center justify-between max-w-[300px] pb-2">
+                <Link :href="route('users.show', { id: randUser.id })" class="flex items-center justify-between max-w-[300px] pb-2">
                 <div class="flex items-center">
-                    <img class="rounded-full z-10 w-[37px] h-[37px]" src="https://picsum.photos/id/200/300/320">
+                    <img class="rounded-full z-10 w-[37px] h-[37px]" :src="randUser.file">
                     <div class="pl-4">
-                       <div class="text-black font-extrabold">NAME HERE</div>
-                       <div class="text-gray-500 font-extrabold text-sm">NAME HERE</div>
+                       <div class="text-black font-extrabold">{{ randUser.name }}</div>
+                       <div class="text-gray-500 font-extrabold text-sm">Suggested for you</div>
                     </div>
                    
                   </div>
