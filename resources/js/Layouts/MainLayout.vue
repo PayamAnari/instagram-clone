@@ -142,10 +142,10 @@ let showCreatePost = ref(false);
           <SendOutline fillColor="#000000" :size="33" class="cursor-pointer" />
           <Plus @click="$event => showCreatePost = true" fillColor="#000000" :size="33" class="cursor-pointer" />
           <AccountOutline fillColor="#000000" :size="33" class="cursor-pointer" />
-          <Link href="/">
+          <Link :href="route('users.show', { id: $page.props.auth.user.id})">
             <img
             class="rounded-full w-[30px] cursor-pointer"
-            src="https://picsum.photos/id/50/300/320"
+            :src="$page.props.auth.user.file"
             >
           </Link>
         </div>

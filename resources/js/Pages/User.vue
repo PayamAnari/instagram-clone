@@ -18,6 +18,34 @@ const form = reactive({ file: null });
 const props = defineProps({ postsByUser: Object, user: Object });
 const { postByUser, user } = toRefs(props);
 
+const addComment = (object) => {
+    router.post('/comments', {
+        post_id: object.post.id,
+        user_id: object.user.id,
+        comment: object.comment
+    }, {
+        onFinish: () => updatedPost(object),
+    }
+    )
+}
+
+const deleteFunc = (object) => {
+    let url = ''
+    if (object.deleteType === 'Post') {
+        url = '/posts/' + object.id
+    } else {
+        url = '/comments/' + object.id
+    }
+
+    router.delete(url, {
+        onFinish: () => updatedPost(object),
+    })
+
+    if (object.deleteType === 'Post') {
+        openOverlay.value = false
+    }
+}
+
 const getUploadedImage = (e) => {
       form.file = e.target.files[0];
       router.post(`/users`, form, {
