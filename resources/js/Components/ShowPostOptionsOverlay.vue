@@ -17,7 +17,7 @@ const { deleteType, id } = toRefs(props);
           <button 
           @click="$emit('deleteSelected', { deleteType, id });"
           class="font-extrabold w-full text-red-600 p-3 text-lg border-b border-b-gray-300 cursor-pointer">
-               Delete
+               Delete {{  deleteType }}
           </button>
              <div class="p-3 text-lg cursor-pointer" @click="$event => $emit('close')">Cancel</div>
       </div>
