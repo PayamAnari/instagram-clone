@@ -24,6 +24,7 @@ use Inertia\Inertia;
 Route::middleware('auth')->group(function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
     Route::post('/users', [UserController::class, 'update'])->name('users.update');
@@ -36,6 +37,11 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/likes', [LikeController::class, 'store'])->name('likes.store');
     Route::delete('/likes/{id}', [LikeController::class, 'destroy'])->name('likes.destroy');
-});
+    
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+
+
+  });
 
 require __DIR__.'/auth.php';

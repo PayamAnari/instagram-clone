@@ -18,6 +18,7 @@ const form = reactive({ file: null })
 const props = defineProps({ postsByUser: Object, user: Object })
 const { postsByUser, user } = toRefs(props)
 
+
 const addComment = (object) => {
     router.post('/comments', {
         post_id: object.post.id,
@@ -109,15 +110,20 @@ const getUploadedImage = (e) => {
 
                 <div class="ml-6 w-full">
                     <div class="flex items-center md:mb-8 mb-5">
-                        <div class="md:mr-6 mr-3 rounded-lg text-[22px]">{{ user.name }}</div>
-                        <button class="md:block hidden md:mr-6 p-1 px-4 rounded-lg text-[16px] font-extrabold bg-gray-100 hover:bg-gray-200">
+            
+                      <div class="md:mr-6 mr-3 rounded-lg text-[22px]">{{ user.name }}</div>
+                      <Link :href="route('profile.edit', { userId: user.id })">
+                      <button v-if="user.id === $page.props.auth.user.id" class="md:block hidden md:mr-6 p-1 px-4 rounded-lg text-[16px] font-extrabold bg-gray-100 hover:bg-gray-200">
                             Edit Profile
                         </button>
                         <Cog :size="28" class="cursor-pointer"/>
+                      </Link>
                     </div>
-                    <button class="md:hidden mr-6 p-1 px-4 max-w-[260px] w-full rounded-lg text-[17px] font-extrabold bg-gray-100 hover:bg-gray-200">
+                    <Link :href="route('profile.edit', { userId: user.id })">
+                    <button v-if="user.id === $page.props.auth.user.id" class="md:hidden mr-6 p-1 px-4 max-w-[260px] w-full rounded-lg text-[17px] font-extrabold bg-gray-100 hover:bg-gray-200">
                         Edit Profile
                     </button>
+                  </Link>
                     <div class="md:block hidden">
                         <div class="flex items-center text-[18px]">
                             <div class="mr-6">

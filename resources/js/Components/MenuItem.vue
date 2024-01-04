@@ -46,4 +46,5 @@ if (iconString.value === 'Log out') icon = Menu;
         </span>
     </div>
  </div>
+
 </template>
