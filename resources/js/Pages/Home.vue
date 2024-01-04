@@ -92,10 +92,10 @@ const updatedPost = (object) => {
     <Head title="Instagram" />
 
     <MainLayout>
-        <div class="mx-auto lg:pl-0 md:pl-[80px] pl-0">
+        <div class="mx-auto xl:pl-[180px] lg:pl-0 md:pl-[80px] pl-0">
             <Carousel
                 v-model="currentSlide"
-                class="max-w-[700px] mx-auto"
+                class="max-w-[700px] pl-[50px] xl:pl-[45px] mx-auto"
                 :items-to-show="wWidth >= 768 ? 8 : 6"
                 :items-to-scroll="4"
                 :wrap-around="true"
@@ -117,7 +117,7 @@ const updatedPost = (object) => {
                 </template>
             </Carousel>
 
-            <div id="Posts" class="px-4 max-w-[600px] mx-auto mt-10" v-for="post in posts.data" :key="post">
+            <div id="Posts" class="px-4 max-w-[600px] xl:ml-[60px] mx-auto mt-10" v-for="post in posts.data" :key="post">
                 <div class="flex items-center justify-between py-2">
                     <div class="flex items-center">
                         <Link :href="route('users.show', { id: post.user.id })" class="flex items-center">
@@ -142,7 +142,7 @@ const updatedPost = (object) => {
                     @like="updateLike($event)"
                 />
 
-                <div class="text-black font-extrabold py-1">{{ post.likes ? post.likes.length : 0 }} likes</div>
+                <div class="text-black font-extrabold py-1">{{ post.likes?.length }} likes</div>
                 <div>
                     <span class="text-black font-extrabold">{{ post.user.name }}</span>
                     {{ post.text }}

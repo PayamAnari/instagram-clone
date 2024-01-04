@@ -18,7 +18,7 @@ let showCreatePost = ref(false);
 </script>
 
 <template>
-    <div id="MainLayout" class="w-full h-screen">
+    <div id="MainLayout" class="w-full h-screen ">
       <div v-if="$page.url === '/'" id="TopNavHome" class="fixed z-30 md:hidden block w-full bg-white h-[61px] border-b border-b-gray-300">
       <div class="flex items-center justify-between h-full">
        <Link href="/">
@@ -48,22 +48,25 @@ let showCreatePost = ref(false);
       <div
          v-if="$page.url !== '/'"
          id="TopNavUser"
-         class="md:hidden fixed flex items-center justify-between z-30 w-full bg-white h-[61px] border-b border-b-gray-300
+         class="md:hidden fixed flex items-center justify-between z-30 w-full bg-white h-[61px] border-b border-b-gray-300 
          "
       >
       <Link href="/" class="px-4">
           <ChevronLeft :size="30" class="cursor-pointer" />
       </Link>
       <div class="font-extrabold text-lg">{{ $page.props.auth.user.name }}</div>
-      <AccountPlusOutline :size="30" class="cursor-pointer px-4" />
+      <Link :href="route('logout')" as="button" method="post">
+            <MenuItem iconString="Log out"/>
+        </Link>
+      
       </div>
-      <div id="SideNav" class="fixed h-full bg-white xl:w-[280px] w-[80px] md:block hidden border-r border-r-gray-300">
+      <div id="SideNav" class="fixed h-full bg-white xl:w-[280px] w-[80px] md:block hidden  border-r border-r-gray-300">
 
 <Link href="/">
     <img class="xl:hidden block w-[25px] mt-10 ml-[25px] mb-10 cursor-pointer" src="/insta-logo-small.png">
     <img class="xl:block hidden w-[120px] mt-10 ml-6 mb-10 cursor-pointer" src="/insta-logo.png">
 </Link>
-        <div class="px-3">
+        <div class="px-3 ">
           <Link href="/">
             <MenuItem iconString="Home" class="mb-4 mt-4" />
           </Link>
@@ -72,7 +75,7 @@ let showCreatePost = ref(false);
           <MenuItem iconString="Messages" class="mb-4" />
           <MenuItem iconString="Notifications" class="mb-4" />
           <MenuItem @click="$event => showCreatePost = true" iconString="Create" class="mb-4" />
-          <Link :href="route('user.show', { id: $page.props.auth.user.id })">
+            <Link :href="route('users.show', { id: $page.props.auth.user.id })">
             <MenuItem iconString="Profile" class="mb-4" />
           </Link>
         </div>
@@ -90,8 +93,8 @@ let showCreatePost = ref(false);
             <slot />
            </main>
           </div>
-          <div v-if="$page.url === '/'" id="SuggestionsSection" class="lg:w-4/12 lg:block hidden text-black mt-10">
-             <Link :href="route('user.show', { id: $page.props.auth.user.id })" class="flex items-center justify-between max-w-[300px]">
+          <div v-if="$page.url === '/'" id="SuggestionsSection" class="lg:w-4/12 lg:block hidden xl:pl-[40px] text-black mt-10">
+             <Link :href="route('users.show', { id: $page.props.auth.user.id })" class="flex items-center justify-between max-w-[300px]">
                  <div class="flex items-center">
                     <img class="rounded-full z-10 w-[58px] h-[58px]" :src="$page.props.auth.user.file">
                     <div class="pl-4">

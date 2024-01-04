@@ -16,17 +16,18 @@ const emit = defineEmits(['like'])
 const user = usePage().props.auth.user
 
 const isHeartActiveComputed = computed(() => {
-    let isTrue = false
-
-    for (let i = 0; i < post.value.likes.length; i++) {
-        const like = post.value.likes[i];
-        if (like.user_id === user.id && like.post_id === post.value.id) {
-            isTrue = true
+    // Check if post and post.likes are defined before accessing properties
+    if (post.value && post.value.likes) {
+        for (let i = 0; i < post.value.likes.length; i++) {
+            const like = post.value.likes[i];
+            if (like.user_id === user.id && like.post_id === post.value.id) {
+                return true;
+            }
         }
     }
 
-    return isTrue
-})
+    return false;
+});
 </script>
 
 <template>

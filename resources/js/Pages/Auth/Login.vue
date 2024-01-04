@@ -8,12 +8,8 @@ import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 defineProps({
-    canResetPassword: {
-        type: Boolean,
-    },
-    status: {
-        type: String,
-    },
+    canResetPassword: Boolean,
+    status: String,
 });
 
 const form = useForm({
@@ -32,7 +28,8 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Log in" />
-          <img class="mx-auto pt-8 pb-10" width="200" src="/insta-logo.png">
+
+        <img class="mx-auto pt-8 pb-10" width="200" src="/insta-logo.png">
 
         <form @submit.prevent="submit">
             <div>
@@ -58,14 +55,15 @@ const submit = () => {
                     v-model="form.password"
                     required
                     autocomplete="current-password"
-                    placeholder="password"
+                    placeholder="Password"
                 />
 
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
+
             <PrimaryButton class="mt-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
+                Log in
+            </PrimaryButton>
 
             <div class="flex items-center justify-center mt-4">
                 <Link
@@ -75,10 +73,10 @@ const submit = () => {
                 >
                     Forgot your password?
                 </Link>
-
             </div>
+
             <div class="flex items-center justify-center mt-4">
-                   Don't have an account?
+                Don't have an account?
                 <Link
                     v-if="canResetPassword"
                     :href="route('register')"
@@ -86,7 +84,6 @@ const submit = () => {
                 >
                     Sign up
                 </Link>
-
             </div>
         </form>
     </GuestLayout>
