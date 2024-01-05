@@ -33,16 +33,26 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        // Retrieve the authenticated user
+        $user = $request->user();
+    
+        // Fill the user model with validated data
+        $user->fill($request->validated());
+    
+        // Set the bio field
+        $user->bio = $request->input('bio');
+    
+        // If the email is changed, mark it as unverified
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
         }
-
-        $request->user()->save();
-
+    
+        // Save the changes
+        $user->save();
+    
         return Redirect::route('profile.edit');
     }
+    
 
     /**
      * Delete the user's account.
@@ -57,14 +67,12 @@ class ProfileController extends Controller
 
         Auth::logout();
 
-        // Delete related records
         Comment::whereHas('post', function ($query) use ($user) {
             $query->where('user_id', $user->id);
         })->delete();
 
         Like::where('user_id', $user->id)->delete();
 
-        // Delete user's posts
         Post::where('user_id', $user->id)->delete();
 
         $user->delete();
