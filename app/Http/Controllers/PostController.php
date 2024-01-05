@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Like;
+use App\Models\Comment;
 use App\Services\fileService;
 use Illuminate\Http\Request;
 
@@ -34,6 +36,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        $post->likes()->delete();
+        $post->comments()->delete();
+
         
         if(!empty($post->file)) {
           $currentFile = public_path() . $post->file;

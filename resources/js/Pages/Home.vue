@@ -64,6 +64,7 @@ const deleteFunc = (object) => {
         }
     };
 
+
     router.delete(url, {
         onFinish: onFinishCallback,
     });
@@ -196,18 +197,12 @@ const updatedPost = (object) => {
         @closeOverlay="openOverlay = false"
     />
 
-
     <ShowPostOptionsOverlay
         v-if="deleteType"
         :deleteType="deleteType"
         :id="id"
         @deleteSelected="
-        deleteFunc($event);
-            $emit('deleteSelected', {
-                deleteType: deleteType,
-                id: id,
-                post: currentPost,
-            })
+            deleteFunc($event);
             deleteType = null;
             id = null;
         "
