@@ -112,11 +112,18 @@ const getUploadedImage = (e) => {
                     <div class="flex items-center md:mb-8 mb-5">
             
                       <div class="md:mr-6 mr-3 rounded-lg text-[22px]">{{ user.name }}</div>
+                      <Cog :size="28" class="cursor-pointer"/>
+                    </div>
+                   
+                    <div class="text-[16px] mb-5">
+                       {{ user.bio }}
+                    </div>
+                    <div class="mb-5">
                       <Link :href="route('profile.edit', { userId: user.id })">
-                      <button v-if="user.id === $page.props.auth.user.id" class="md:block hidden md:mr-6 p-1 px-4 rounded-lg text-[16px] font-extrabold bg-gray-100 hover:bg-gray-200">
+                      <button v-if="user.id === $page.props.auth.user.id" class="md:block hidden md:mr-6 p-1 px-4 w-64 rounded-lg text-[17px] font-extrabold bg-gray-100 hover:bg-gray-200">
                             Edit Profile
                         </button>
-                        <Cog :size="28" class="cursor-pointer"/>
+                        
                       </Link>
                     </div>
                     <Link :href="route('profile.edit', { userId: user.id })">
