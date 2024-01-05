@@ -54,7 +54,7 @@ let showCreatePost = ref(false);
       <Link href="/" class="px-4">
           <ChevronLeft :size="30" class="cursor-pointer" />
       </Link>
-      <div class="font-extrabold text-lg">{{ $page.props.auth.user.name }}</div>
+      <div class="font-extrabold mr-[140px] text-lg">{{ $page.props.auth.user.name }}</div>
       <Link :href="route('logout')" as="button" method="post">
             <MenuItem iconString="Log out"/>
         </Link>

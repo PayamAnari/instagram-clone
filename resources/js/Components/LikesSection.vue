@@ -1,6 +1,9 @@
 <script setup>
-import { computed, toRefs } from 'vue';
+import { computed, toRefs, ref } from 'vue';
 import { usePage } from '@inertiajs/vue3';
+
+import ShowPostOverlay from '@/Components/ShowPostOverlay.vue'
+
 
 import Heart from 'vue-material-design-icons/Heart.vue';
 import HeartOutline from 'vue-material-design-icons/HeartOutline.vue';
@@ -10,6 +13,9 @@ import BookmarkOutline from 'vue-material-design-icons/BookmarkOutline.vue';
 
 const props = defineProps(['post'])
 const { post } = toRefs(props)
+
+let currentPost = ref(null)
+let openOverlay = ref(false)
 
 const emit = defineEmits(['like'])
 
@@ -37,10 +43,22 @@ const isHeartActiveComputed = computed(() => {
                 <HeartOutline v-if="!isHeartActiveComputed" class="pl-3 cursor-pointer" :size="30" />
                 <Heart v-else class="pl-3 cursor-pointer" fillColor="#FF0000" :size="30" />
             </button>
+            <button @click="currentPost = post; openOverlay = true" class="-mt-[12px] ml-1" >
             <CommentOutline class="pl-3 pt-[10px]" :size="30" />
+          </button>
             <SendOutline class="pl-3 pt-[10px]" :size="30" />
         </div>
 
         <BookmarkOutline class="pl-3 pt-[10px]" :size="30" />
     </div>
+    <ShowPostOverlay
+        v-if="openOverlay"
+        :post="currentPost"
+        @addComment="addComment($event)"
+        @updateLike="updateLike($event)"
+        @deleteSelected="
+            deleteFunc($event);
+        "
+        @closeOverlay="openOverlay = false"
+    />
 </template>

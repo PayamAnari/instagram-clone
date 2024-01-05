@@ -53,15 +53,22 @@ const deleteFunc = (object) => {
     }
 }
 
+const newPost = {
+  // other properties
+  likes: [],
+};
+
 const updateLike = (object) => {
     let deleteLike = false
     let id = null
 
-    for (let i = 0; i < object.post.likes.length; i++) {
-        const like = object.post.likes[i];
-        if (like.user_id === object.user.id && like.post_id === object.post.id) {
-            deleteLike = true
-            id = like.id
+     if (Array.isArray(object.post.likes)) {
+        for (let i = 0; i < object.post.likes.length; i++) {
+            const like = object.post.likes[i];
+            if (like.user_id === object.user.id && like.post_id === object.post.id) {
+                deleteLike = true;
+                id = like.id;
+            }
         }
     }
 
@@ -92,7 +99,7 @@ const updatedPost = (object) => {
     <Head title="Instagram" />
 
     <MainLayout>
-        <div class="mx-auto xl:pl-[180px] lg:pl-0 md:pl-[80px] pl-0">
+        <div class="mx-auto xl:pl-[180px] lg:pl-0 md:pl-[80px]">
             <Carousel
                 v-model="currentSlide"
                 class="max-w-[700px] pl-[50px] xl:pl-[45px] mx-auto"
