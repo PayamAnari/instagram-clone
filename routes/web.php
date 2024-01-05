@@ -39,7 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/likes/{id}', [LikeController::class, 'destroy'])->name('likes.destroy');
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
   });

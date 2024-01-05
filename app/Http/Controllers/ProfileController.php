@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Like;
+use App\Models\Post;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
@@ -54,6 +57,16 @@ class ProfileController extends Controller
 
         Auth::logout();
 
+        // Delete related records
+        Comment::whereHas('post', function ($query) use ($user) {
+            $query->where('user_id', $user->id);
+        })->delete();
+
+        Like::where('user_id', $user->id)->delete();
+
+        // Delete user's posts
+        Post::where('user_id', $user->id)->delete();
+
         $user->delete();
 
         $request->session()->invalidate();
@@ -62,3 +75,4 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 }
+
