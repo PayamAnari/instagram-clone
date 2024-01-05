@@ -62,16 +62,14 @@ const updateLike = (object) => {
     let deleteLike = false
     let id = null
 
-     if (Array.isArray(object.post.likes)) {
-        for (let i = 0; i < object.post.likes.length; i++) {
-            const like = object.post.likes[i];
-            if (like.user_id === object.user.id && like.post_id === object.post.id) {
-                deleteLike = true;
-                id = like.id;
-            }
+    for (let i = 0; i < object.post.likes.length; i++) {
+        const like = object.post.likes[i];
+        if (like.user_id === object.user.id && like.post_id === object.post.id) {
+            deleteLike = true
+            id = like.id
         }
     }
-
+console.log(object.post)
     if (deleteLike) {
         router.delete('/likes/' + id, {
             onFinish: () => updatedPost(object),
@@ -160,8 +158,9 @@ const updatedPost = (object) => {
                 >
                     View all {{ post.comments.length }} comments
                 </button>
+                <div class="text-gray-500 py-1 text-sm">{{ post.created_at }}</div>
             </div>
-
+            
             <div class="pb-20"></div>
         </div>
     </MainLayout>
