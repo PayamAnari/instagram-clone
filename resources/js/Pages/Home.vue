@@ -1,10 +1,12 @@
 <script setup>
 import { ref, onMounted, toRefs } from 'vue'
-import { Head, Link, router } from '@inertiajs/vue3';
+import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 
 import LikesSection from '@/Components/LikesSection.vue'
 import ShowPostOverlay from '@/Components/ShowPostOverlay.vue'
+import ShowPostOptionsOverlay from '@/Components/ShowPostOptionsOverlay.vue'
+
 
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
@@ -16,8 +18,16 @@ let currentSlide = ref(0)
 let currentPost = ref(null)
 let openOverlay = ref(false)
 
+let deleteType = ref(null)
+let id = ref(null)
+
+
+const user = usePage().props.auth.user
+
 const props = defineProps({ posts: Object, allUsers: Object })
 const { posts, allUsers } = toRefs(props)
+
+defineEmits(['closeOverlay','deleteSelected'])
 
 onMounted(() => {
     window.addEventListener('resize', () => {
@@ -37,26 +47,28 @@ const addComment = (object) => {
 }
 
 const deleteFunc = (object) => {
-    let url = ''
+
+    let url = '';
     if (object.deleteType === 'Post') {
-        url = '/posts/' + object.id
+        url = '/posts/' + object.id;
     } else {
-        url = '/comments/' + object.id
+        url = '/comments/' + object.id;
     }
+
+
+    const onFinishCallback = () => {
+        updatedPost(object);
+
+        if (object.deleteType === 'Post') {
+            openOverlay.value = false;
+        }
+    };
 
     router.delete(url, {
-        onFinish: () => updatedPost(object),
-    })
-
-    if (object.deleteType === 'Post') {
-        openOverlay.value = false
-    }
-}
-
-const newPost = {
-  // other properties
-  likes: [],
+        onFinish: onFinishCallback,
+    });
 };
+
 
 const updateLike = (object) => {
     let deleteLike = false
@@ -69,7 +81,7 @@ const updateLike = (object) => {
             id = like.id
         }
     }
-console.log(object.post)
+    
     if (deleteLike) {
         router.delete('/likes/' + id, {
             onFinish: () => updatedPost(object),
@@ -91,6 +103,8 @@ const updatedPost = (object) => {
         }
     }
 }
+
+
 </script>
 
 <template>
@@ -135,7 +149,13 @@ const updatedPost = (object) => {
                         </div>
                     </div>
 
-                    <DotsHorizontal class="cursor-pointer" :size="27"/>
+                    <button
+                       v-if="user.id === post.user.id"
+                       @click=" deleteType = 'Post'; id = post.id"
+                     >
+                       <DotsHorizontal class="cursor-pointer" :size="27" />
+                    </button>
+
                 </div>
 
                 <div class="bg-black rounded-lg w-full min-h-[400px] flex items-center">
@@ -174,6 +194,24 @@ const updatedPost = (object) => {
             deleteFunc($event);
         "
         @closeOverlay="openOverlay = false"
+    />
+
+
+    <ShowPostOptionsOverlay
+        v-if="deleteType"
+        :deleteType="deleteType"
+        :id="id"
+        @deleteSelected="
+        deleteFunc($event);
+            $emit('deleteSelected', {
+                deleteType: deleteType,
+                id: id,
+                post: currentPost,
+            })
+            deleteType = null;
+            id = null;
+        "
+        @close="deleteType = null; id = null"
     />
 </template>
 
