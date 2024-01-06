@@ -2,6 +2,9 @@
 import { ref, toRefs } from 'vue'
 import { usePage } from '@inertiajs/vue3'
 
+import EmojiPicker from 'vue3-emoji-picker'
+import 'vue3-emoji-picker/css'
+
 import ShowPostOptionsOverlay from '@/Components/ShowPostOptionsOverlay.vue'
 import LikesSection from '@/Components/LikesSection.vue'
 
@@ -12,6 +15,7 @@ import EmoticonHappyOutline from 'vue-material-design-icons/EmoticonHappyOutline
 let comment = ref('')
 let deleteType = ref(null)
 let id = ref(null)
+let showEmojiPicker = ref(false);
 
 const user = usePage().props.auth.user
 
@@ -24,7 +28,16 @@ const textareaInput = (e) => {
     textarea.value.style.height = "auto";
     textarea.value.style.height = `${e.target.scrollHeight}px`;
 }
+
+const handleEmojiSelection = (emoji) => {
+    console.log(emoji); // Log the emoji object to the console
+    const emojiToAdd = typeof emoji === 'object' ? emoji.i || emoji.u || emoji.r : emoji;
+    comment.value += emojiToAdd;
+    showEmojiPicker.value = true;
+};
+
 </script>
+
 
 <template>
     <div id="OverlaySection" class="fixed z-50 top-0 left-0 w-full h-screen bg-[#000000] bg-opacity-60 p-3">
@@ -120,7 +133,8 @@ const textareaInput = (e) => {
                     />
 
                     <div class="absolute flex border bottom-0 w-full max-h-[200px] bg-white overflow-auto">
-                        <EmoticonHappyOutline class="pl-3 pt-[10px]" :size="30" />
+                      <EmoticonHappyOutline @click="showEmojiPicker = !showEmojiPicker" class="pl-3 pt-[10px]" :size="30" />
+                      <EmojiPicker v-if="showEmojiPicker" :native="true" @select="handleEmojiSelection" placement="top-start" />
                         <textarea
                             ref="textarea"
                             :oninput="textareaInput"
@@ -139,6 +153,7 @@ const textareaInput = (e) => {
                                 text-[18px]
                             "
                         ></textarea>
+                        
                         <button
                             v-if="comment"
                             class="text-blue-600 font-extrabold pr-4"
