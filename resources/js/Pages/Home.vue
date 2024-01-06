@@ -208,6 +208,14 @@ const updatedPost = (object) => {
         "
         @close="deleteType = null; id = null"
     />
+
+   <LikeSection
+        v-if="openOverlay"
+        :post="currentPost"
+        @addComment="addComment($event)"
+        @closeOverlay="openOverlay = false"
+        /> 
+
 </template>
 
 <style>

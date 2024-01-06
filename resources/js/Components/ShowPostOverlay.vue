@@ -170,4 +170,13 @@ const textareaInput = (e) => {
         "
         @close="deleteType = null; id = null"
     />
+  
+    <LikesSection
+        v-if="post"
+        class="hidden md:block px-2 border-t mb-2"
+        :post="post"
+        @like="$emit('updateLike', $event)"
+
+        />
+
 </template>

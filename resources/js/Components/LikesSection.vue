@@ -13,10 +13,13 @@ import BookmarkOutline from 'vue-material-design-icons/BookmarkOutline.vue';
 const props = defineProps(['post']);
 const { post } = toRefs(props);
 
+
 let currentPost = ref(null);
 let openOverlay = ref(false);
 
-const emit = defineEmits(['like']);
+
+
+const emit = defineEmits(['like', 'addComment']);
 
 const user = usePage().props.auth.user;
 
@@ -34,6 +37,10 @@ const isHeartActiveComputed = computed(() => {
 
     return false;
 });
+
+const addComment = (payload) => {
+  emit('addComment', payload);
+};
 </script>
 
 <template>
@@ -43,7 +50,10 @@ const isHeartActiveComputed = computed(() => {
                 <HeartOutline v-if="!isHeartActiveComputed" class="pl-3 cursor-pointer" :size="30" />
                 <Heart v-else class="pl-3 cursor-pointer" fillColor="#FF0000" :size="30" />
             </button>
-            <button @click="currentPost = post; openOverlay = true" class="-mt-[12px] ml-1" >
+            <button @click="currentPost = post; openOverlay = true 
+             $emit('addComment', { post, user, comment });
+             comment = ''
+            " class="-mt-[12px] ml-1" >
             <CommentOutline class="pl-3 pt-[10px]" :size="30" />
           </button>
             <SendOutline class="pl-3 pt-[10px]" :size="30" />
@@ -51,14 +61,11 @@ const isHeartActiveComputed = computed(() => {
 
         <BookmarkOutline class="pl-3 pt-[10px]" :size="30" />
     </div>
+  
     <ShowPostOverlay
         v-if="openOverlay"
         :post="currentPost"
         @addComment="addComment($event)"
-        @updateLike="updateLike($event)"
-        @deleteSelected="
-            deleteFunc($event);
-        "
         @closeOverlay="openOverlay = false"
     />
 </template>
