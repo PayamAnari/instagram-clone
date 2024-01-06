@@ -30,10 +30,10 @@ const textareaInput = (e) => {
 }
 
 const handleEmojiSelection = (emoji) => {
-    console.log(emoji); // Log the emoji object to the console
     const emojiToAdd = typeof emoji === 'object' ? emoji.i || emoji.u || emoji.r : emoji;
     comment.value += emojiToAdd;
     showEmojiPicker.value = true;
+    
 };
 
 </script>
@@ -160,6 +160,7 @@ const handleEmojiSelection = (emoji) => {
                             @click="
                                 $emit('addComment', { post, user, comment });
                                 comment = ''
+                                showEmojiPicker = false;
                             "
                         >
                             Post
