@@ -11,14 +11,12 @@ import SendOutline from 'vue-material-design-icons/SendOutline.vue';
 import BookmarkOutline from 'vue-material-design-icons/BookmarkOutline.vue';
 
 
-const props = defineProps(['post', 'class', 'Likes', 'user', 'comment', 'user' ]);
+const props = defineProps(['post', 'class', 'Likes', 'user' ]);
 const { post } = toRefs(props);
 
-const bookmarks = ref(post.value.bookmark || []);
 let openOverlay = ref(false);
 
-const emit = defineEmits(['like', 'closeOverlay', 'selectedPost', 'addComment' ,
-  'updatedPost' ]);
+const emit = defineEmits(['like', 'closeOverlay' ]);
 
 const user = usePage().props.auth.user;
 
