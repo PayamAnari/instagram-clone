@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted, toRefs } from 'vue'
+import { ref, onMounted, toRefs, reactive } from 'vue'
 import { Head, Link, router, usePage } from '@inertiajs/vue3';
+
 import MainLayout from '@/Layouts/MainLayout.vue';
 
 import LikesSection from '@/Components/LikesSection.vue'
@@ -34,6 +35,8 @@ onMounted(() => {
         wWidth.value = window.innerWidth
     })
 })
+
+
 
 const addComment = (object) => {
     router.post('/comments', {
@@ -72,29 +75,39 @@ const deleteFunc = (object) => {
 
 
 const updateLike = (object) => {
-    let deleteLike = false
-    let id = null
+    let deleteLike = false;
+    let id = null;
 
-    for (let i = 0; i < object.post.likes.length; i++) {
-        const like = object.post.likes[i];
+    
+    if (!object.post.likes) {
+        object.post.likes = [];
+    }
+
+    for (let i = 0; i < object.post.Likes.length; i++) {
+        const like = object.post.Likes[i];
         if (like.user_id === object.user.id && like.post_id === object.post.id) {
-            deleteLike = true
-            id = like.id
+            deleteLike = true;
+            id = like.id;
         }
     }
-    
+
     if (deleteLike) {
         router.delete('/likes/' + id, {
-            onFinish: () => updatedPost(object),
-        })
+            onFinish: () => {
+                updatedPost(object);
+            },
+        });
     } else {
         router.post('/likes', {
             post_id: object.post.id,
-        },{
-            onFinish: () => updatedPost(object),
-        })
+        }, {
+            onFinish: () => {
+                updatedPost(object);
+            },
+        });
     }
 }
+
 
 const updatedPost = (object) => {
     for (let i = 0; i < posts.value.data.length; i++) {
@@ -165,10 +178,15 @@ const updatedPost = (object) => {
 
                 <LikesSection
                     :post="post"
+                    :user="user"
                     @like="updateLike($event)"
+                    @bookmark="updateBookmark($event)"
                 />
 
-                <div class="text-black font-extrabold py-1">{{ post.likes?.length }} likes</div>
+                <div class="text-black font-extrabold py-1">
+                  {{ post.Likes?.length }}
+                  {{ post.Likes?.length === 1 ? ' like' : ' likes' }}
+               </div>
                 <div>
                     <span class="text-black font-extrabold">{{ post.user.name }}</span>
                     {{ post.text }}
@@ -184,6 +202,7 @@ const updatedPost = (object) => {
             
             <div class="pb-20"></div>
         </div>
+        
     </MainLayout>
 
     <ShowPostOverlay
@@ -209,10 +228,8 @@ const updatedPost = (object) => {
         @close="deleteType = null; id = null"
     />
 
-   <LikeSection
+   <LikesSection
         v-if="openOverlay"
-        :post="currentPost"
-        @addComment="addComment($event)"
         @closeOverlay="openOverlay = false"
         /> 
 

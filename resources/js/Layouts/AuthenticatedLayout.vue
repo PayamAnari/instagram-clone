@@ -20,7 +20,7 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link href="/">
                                   <img class="w-[105px] ml-6 cursor-pointer " src="/insta-logo.png">
                                 </Link>
                             </div>

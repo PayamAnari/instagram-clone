@@ -17,12 +17,15 @@ let deleteType = ref(null)
 let id = ref(null)
 let showEmojiPicker = ref(false);
 
+
+const textarea = ref(null);
+
 const user = usePage().props.auth.user
 
-const props = defineProps(['post'])
+const props = defineProps(['post', 'comment', 'class'])
 const { post } = toRefs(props)
 
-defineEmits(['closeOverlay', 'addComment', 'updateLike', 'deleteSelected'])
+defineEmits(['closeOverlay', 'addComment', 'updateLike', 'deleteSelected', 'openOverlay'])
 
 const textareaInput = (e) => {
     textarea.value.style.height = "auto";
@@ -136,6 +139,8 @@ const handleEmojiSelection = (emoji) => {
                       <EmoticonHappyOutline @click="showEmojiPicker = !showEmojiPicker" class="pl-3 pt-[10px]" :size="30" />
                       <EmojiPicker v-if="showEmojiPicker" :native="true" @select="handleEmojiSelection" placement="top-start" />
                         <textarea
+                        id="commentTextarea"
+
                             ref="textarea"
                             :oninput="textareaInput"
                             v-model="comment"
@@ -188,11 +193,9 @@ const handleEmojiSelection = (emoji) => {
     />
   
     <LikesSection
-        v-if="post"
-        class="hidden md:block px-2 border-t mb-2"
-        :post="post"
-        @like="$emit('updateLike', $event)"
-
+    v-if="openOverlay"
+    :post="post"
+    @closeOverlay="openOverlay = false"
         />
 
 </template>

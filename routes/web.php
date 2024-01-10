@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
@@ -42,7 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
   });
+
+ 
 
 require __DIR__.'/auth.php';

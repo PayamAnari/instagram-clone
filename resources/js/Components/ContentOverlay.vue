@@ -7,8 +7,8 @@ import Comment from 'vue-material-design-icons/Comment.vue';
 defineEmits(['selectedPost'])
 const props = defineProps(['postByUser']);
 const { postByUser } = toRefs(props);
+let isHover = ref(false);
 
-let isHover = ref(false)
 </script>
 
 <template>
@@ -24,9 +24,9 @@ let isHover = ref(false)
             class=" absolute w-full h-full z-50 flex items-center justify-around text-lg font-extrabold text-white"
         >
         <div class="flex items-center justify-around w-[50%]">
-           <div v-if="postByUser.likes" class="flex items-center justify-center">
+           <div v-if="postByUser.Likes" class="flex items-center justify-center">
             <Heart fillColor="#FFFFFF" :size="30"/>
-          <div class="pl-1">{{ postByUser.likes.length }}</div>
+          <div class="pl-1">{{ postByUser.Likes.length }}</div>
          </div>
           <div v-if="postByUser.comments" class="flex items-center justify-center">
            <Comment fillColor="#FFFFFF" :size="30"/>
@@ -41,4 +41,5 @@ let isHover = ref(false)
             :src="postByUser.file"
         >
     </div>
+
 </template>

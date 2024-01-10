@@ -1,6 +1,6 @@
 <script setup>
-import { reactive, toRefs } from 'vue'
-import { Head, Link, router } from '@inertiajs/vue3';
+import { reactive, toRefs, ref, onMounted } from 'vue'
+import { Head, Link , router } from '@inertiajs/vue3';
 
 import MainLayout from '@/Layouts/MainLayout.vue';
 import ShowPostOverlay from '@/Components/ShowPostOverlay.vue'
@@ -14,6 +14,8 @@ import AccountBoxOutline from 'vue-material-design-icons/AccountBoxOutline.vue';
 
 let data = reactive({ post: null })
 const form = reactive({ file: null })
+
+onMounted(() => getBookmarks())
 
 const props = defineProps({ postsByUser: Object, user: Object })
 const { postsByUser, user } = toRefs(props)
@@ -48,8 +50,8 @@ const updateLike = (object) => {
     let deleteLike = false
     let id = null
 
-    for (let i = 0; i < object.post.likes.length; i++) {
-        const like = object.post.likes[i];
+    for (let i = 0; i < object.post.Likes.length; i++) {
+        const like = object.post.Likes[i];
         if (like.user_id === object.user.id && like.post_id === object.post.id) {
             deleteLike = true
             id = like.id
@@ -68,6 +70,7 @@ const updateLike = (object) => {
         })
     }
 }
+
 
 const updatedPost = (object) => {
     for (let i = 0; i < postsByUser.value.data.length; i++) {
@@ -120,14 +123,14 @@ const getUploadedImage = (e) => {
                     </div>
                     <div class="mb-5">
                       <Link :href="route('profile.edit', { userId: user.id })">
-                      <button v-if="user.id === $page.props.auth.user.id" class="md:block hidden md:mr-6 p-1 px-4 w-64 rounded-lg text-[17px] font-extrabold bg-gray-100 hover:bg-gray-200">
+                      <button v-if="user.id === $page.props.auth.user.id" class="md:block hidden md:mr-6 p-1 px-4 w-64 rounded-lg text-[17px] font-extrabold bg-gray-100 hover:bg-gray-200 cursor-pointer">
                             Edit Profile
                         </button>
                         
                       </Link>
                     </div>
                     <Link :href="route('profile.edit', { userId: user.id })">
-                    <button v-if="user.id === $page.props.auth.user.id" class="md:hidden mr-6 p-1 px-4 max-w-[260px] w-full rounded-lg text-[17px] font-extrabold bg-gray-100 hover:bg-gray-200">
+                    <button v-if="user.id === $page.props.auth.user.id" class="md:hidden mr-6 p-1 px-4 max-w-[260px] w-full rounded-lg text-[17px] font-extrabold bg-gray-100 hover:bg-gray-200 cursor-pointer">
                         Edit Profile
                     </button>
                   </Link>
@@ -192,9 +195,9 @@ const getUploadedImage = (e) => {
                         <PlayBoxOutline :size="15" fillColor="#8E8E8E" class="cursor-pointer"/>
                         <div class="ml-2 -mb-[1px] text-gray-900">REELS</div>
                     </div>
-                    <div class="p-[17px] w-1/4 flex justify-center items-center">
-                        <BookmarkOutline :size="15" fillColor="#8E8E8E" class="cursor-pointer"/>
-                        <span class="ml-2 -mb-[1px]">SAVED</span>
+                    <div class="p-[17px] w-1/4 flex justify-center items-center cursor-pointer" >
+                       <BookmarkOutline :size="15" fillColor="#8E8E8E" />
+                      <span class="ml-2 -mb-[1px]">SAVED</span>
                     </div>
                     <div class="p-[17px] w-1/4 flex justify-center items-center">
                         <AccountBoxOutline :size="15" fillColor="#8E8E8E" class="cursor-pointer"/>
@@ -209,6 +212,7 @@ const getUploadedImage = (e) => {
                         :postByUser="postByUser"
                         @selectedPost="data.post = $event"
                     />
+                   
                 </div>
             </div>
 
@@ -226,6 +230,7 @@ const getUploadedImage = (e) => {
         "
         @closeOverlay="data.post = null"
     />
+   
 </template>
 
 
