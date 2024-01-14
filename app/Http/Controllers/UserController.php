@@ -8,6 +8,11 @@ use App\Models\User;
 use App\Services\FileService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
+
+
 
 class UserController extends Controller
 {
@@ -38,4 +43,65 @@ class UserController extends Controller
 
         return redirect()->route('users.show',['id' => auth()->user()->id]);
     }
+
+
+    public function getFavoritePosts()
+    {
+        $user = Auth::user();
+        return response()->json(['favorite_posts' => $user->favoritePosts ?? []]);
+    }
+
+    public function updateFavoritePosts(Request $request)
+    {
+        $request->validate([
+            'post_id' => 'required',
+        ]);
+    
+        $user = Auth::user();
+        $favoritePosts = $user->favoritePosts ?? [];
+        
+        // Fetch the post information based on the post_id
+        $post = Post::find($request->post_id);
+    
+        if ($post && !in_array(['post_id' => $post->id, 'file' => $post->file, 'comments' => $post->comments, 'likes' => $post->likes], $favoritePosts, true)) {
+            $favoritePosts[] = [
+                'post_id' => $post->id,
+                'file' => $post->file,
+                'comments' => $post->comments,
+                'likes' => $post->likes,
+            ];
+        
+            $user->favoritePosts = $favoritePosts;
+        
+            $user->save();
+        
+            return Redirect::back()->with('success', 'Favorite post added successfully');
+        }
+    
+        return Redirect::back()->with('error', 'Favorite post already exists');
+    }
+    
+    
+    
+public function removeFavoritePost($postId)
+{
+    $user = Auth::user();
+
+    $favoritePosts = $user->favoritePosts ?? [];
+
+    $postIdToRemove = is_array($postId) ? $postId['post_id'] : $postId;
+
+    $key = array_search($postIdToRemove, array_column($favoritePosts, 'post_id'));
+
+    if ($key !== false) {
+        unset($favoritePosts[$key]);
+
+        $favoritePosts = array_values($favoritePosts);
+
+        $user->favoritePosts = $favoritePosts;
+        $user->save();
+    }
+
+}
+
 }

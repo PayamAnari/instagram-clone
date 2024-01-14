@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/favorite-posts', [UserController::class, 'getFavoritePosts']);
+    Route::post('/favorite-posts', [UserController::class, 'updateFavoritePosts']);
+    Route::delete('/favorite-posts/{postId}', [UserController::class, 'removeFavoritePost']);
+
   });
 
  

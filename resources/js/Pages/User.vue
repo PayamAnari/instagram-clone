@@ -1,10 +1,11 @@
 <script setup>
-import { reactive, toRefs, ref, onMounted } from "vue";
+import { reactive, toRefs, ref } from "vue";
 import { Head, Link, router } from "@inertiajs/vue3";
 
 import MainLayout from "@/Layouts/MainLayout.vue";
 import ShowPostOverlay from "@/Components/ShowPostOverlay.vue";
 import ContentOverlay from "@/Components/ContentOverlay.vue";
+import FavoritePostsOverlay from "@/Components/FavoritePostsOverlay.vue";
 
 import Cog from "vue-material-design-icons/Cog.vue";
 import Grid from "vue-material-design-icons/Grid.vue";
@@ -17,6 +18,26 @@ const form = reactive({ file: null });
 
 const props = defineProps({ postsByUser: Object, user: Object });
 const { postsByUser, user } = toRefs(props);
+
+const favoritePosts = ref(props.user.favoritePosts || []);
+
+const isGridIconBlue = ref(false);
+const isBookmarkIconBlue = ref(false);
+const showFavoritePostsOverlay = ref(false);
+
+const toggleGridIconColor = () => {
+    isGridIconBlue.value = !isGridIconBlue.value;
+    isBookmarkIconBlue.value = false; 
+    showFavoritePostsOverlay.value = false; 
+};
+
+const toggleBookmarkIconColor = () => {
+    isBookmarkIconBlue.value = !isBookmarkIconBlue.value;
+    isGridIconBlue.value = false; 
+    showFavoritePostsOverlay.value = true; 
+};
+
+
 
 const addComment = (object) => {
     router.post(
@@ -198,12 +219,13 @@ const getUploadedImage = (e) => {
             >
                 <div
                     class="p-3 w-1/4 flex justify-center border-t border-t-gray-900"
-                >
+              
+                    >
                     <Grid
-                        :size="28"
-                        fillColor="#0095F6"
-                        class="cursor-pointer"
-                    />
+                       :size="30"
+                       :fillColor="isGridIconBlue ? 'blue' : '#8E8E8E'"
+                       @click="toggleGridIconColor"
+                     />
                 </div>
                 <div class="p-3 w-1/4 flex justify-center">
                     <PlayBoxOutline
@@ -212,13 +234,16 @@ const getUploadedImage = (e) => {
                         class="cursor-pointer"
                     />
                 </div>
-                <div class="p-3 w-1/4 flex justify-center">
-                    <BookmarkOutline
-                        :size="28"
-                        fillColor="#8E8E8E"
-                        class="cursor-pointer"
-                    />
-                </div>
+                <div
+                  class="p-3 w-1/4 flex justify-center cursor-pointer"
+                  @click="toggleBookmarkIconColor"
+                   >
+                  <BookmarkOutline
+                  :size="30"
+                  :fillColor="isBookmarkIconBlue ? 'blue' : '#8E8E8E'"
+                 />
+               </div>
+
                 <div class="p-3 w-1/4 flex justify-center">
                     <AccountBoxOutline
                         :size="28"
@@ -240,11 +265,11 @@ const getUploadedImage = (e) => {
                     <div
                         class="p-[17px] w-1/4 flex justify-center items-center border-t border-t-gray-900"
                     >
-                        <Grid
-                            :size="15"
-                            fillColor="#000000"
-                            class="cursor-pointer"
-                        />
+                    <Grid
+                       :size="30"
+                       :fillColor="isGridIconBlue ? 'blue' : '#8E8E8E'"
+                       @click="toggleGridIconColor"
+                     />
                         <div class="ml-2 -mb-[1px] text-gray-900">POSTS</div>
                     </div>
                     <div
@@ -259,9 +284,13 @@ const getUploadedImage = (e) => {
                     </div>
                     <div
                         class="p-[17px] w-1/4 flex justify-center items-center cursor-pointer"
-                    >
-                        <BookmarkOutline :size="15" fillColor="#8E8E8E" />
-                        <span class="ml-2 -mb-[1px]">SAVED</span>
+                        @click="toggleBookmarkIconColor"
+                        >
+                        <BookmarkOutline
+                         :size="30"
+                         :fillColor="isBookmarkIconBlue ? 'blue' : '#8E8E8E'"
+                        />                        
+                      <span class="ml-2 -mb-[1px]">SAVED</span>
                     </div>
                     <div
                         class="p-[17px] w-1/4 flex justify-center items-center"
@@ -275,16 +304,25 @@ const getUploadedImage = (e) => {
                     </div>
                 </div>
             </div>
+            <div v-if="!showFavoritePostsOverlay">
+    <div class="grid md:gap-4 gap-1 grid-cols-3 relative">
+        <div v-for="postByUser in postsByUser.data" :key="postByUser">
+            <ContentOverlay
+                :postByUser="postByUser"
+                @selectedPost="data.post = $event"
+            />
+        </div>
+    </div>
+</div>
 
-            <div class="grid md:gap-4 gap-1 grid-cols-3 relative">
-                <div v-for="postByUser in postsByUser.data" :key="postByUser">
-                    <ContentOverlay
-                        :postByUser="postByUser"
-                        @selectedPost="data.post = $event"
-                    />
-                </div>
-            </div>
-
+<div v-if="showFavoritePostsOverlay">
+  <div class="grid md:gap-4 gap-1 grid-cols-3 absolute">
+    <FavoritePostsOverlay
+    :favoritePosts="favoritePosts"
+    @selectedPost="selectedPost = $event"
+/>
+ </div>
+</div>
             <div class="pb-20"></div>
         </div>
     </MainLayout>

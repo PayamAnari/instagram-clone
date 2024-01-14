@@ -22,7 +22,7 @@ const textarea = ref(null);
 
 const user = usePage().props.auth.user
 
-const props = defineProps(['post', 'comment', 'class'])
+const props = defineProps(['post', 'comment', 'class', 'openOverlay', 'addComment', 'deleteFunc'])
 const { post } = toRefs(props)
 
 defineEmits(['closeOverlay', 'addComment', 'updateLike', 'deleteSelected', 'openOverlay'])
@@ -192,10 +192,4 @@ const handleEmojiSelection = (emoji) => {
         @close="deleteType = null; id = null"
     />
   
-    <LikesSection
-    v-if="openOverlay"
-    :post="post"
-    @closeOverlay="openOverlay = false"
-        />
-
 </template>

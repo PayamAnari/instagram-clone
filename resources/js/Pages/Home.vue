@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, toRefs, reactive } from 'vue'
+import { ref, onMounted, toRefs } from 'vue'
 import { Head, Link, router, usePage } from '@inertiajs/vue3';
 
 import MainLayout from '@/Layouts/MainLayout.vue';
@@ -7,6 +7,7 @@ import MainLayout from '@/Layouts/MainLayout.vue';
 import LikesSection from '@/Components/LikesSection.vue'
 import ShowPostOverlay from '@/Components/ShowPostOverlay.vue'
 import ShowPostOptionsOverlay from '@/Components/ShowPostOptionsOverlay.vue'
+import FavoritePostsOverlay from '@/Components/FavoritePostsOverlay.vue'
 
 
 import 'vue3-carousel/dist/carousel.css'
@@ -22,7 +23,6 @@ let openOverlay = ref(false)
 let deleteType = ref(null)
 let id = ref(null)
 
-
 const user = usePage().props.auth.user
 
 const props = defineProps({ posts: Object, allUsers: Object })
@@ -37,6 +37,42 @@ onMounted(() => {
 })
 
 
+const updateFavorite = (object) => {
+
+    const postId = object.post && 'id' in object.post ? object.post.id : null;
+
+    if (!postId) {
+        return;
+    }
+
+    const favorite = object.user && object.user.favoritePosts && object.user.favoritePosts.find(f => f.post_id === postId);
+
+    if (favorite) {
+        router.delete(`/favorite-posts/${favorite.post_id}`, {
+            onFinish: () => {
+              console.log('Deleted')
+                if (object.user && object.user.favoritePosts) {
+                    object.user.favoritePosts = 
+                    object.user.favoritePosts.filter(f => f.post_id !== postId);
+                    updatedPost(object);
+                }
+            },
+        });
+    } else {
+        router.post('/favorite-posts', {
+            post_id: postId,
+            user_id: object.user.id,
+        }, {
+            onFinish: () => {
+              console.log('Added')
+                if (object.user && object.user.favoritePosts) {
+                    object.user.favoritePosts.push({ post_id: postId });
+                    updatedPost(object);
+                }
+            },
+        });
+    }
+};
 
 const addComment = (object) => {
     router.post('/comments', {
@@ -82,7 +118,6 @@ const updateLike = (object) => {
     if (!object.post.likes) {
         object.post.likes = [];
     }
-
     for (let i = 0; i < object.post.Likes.length; i++) {
         const like = object.post.Likes[i];
         if (like.user_id === object.user.id && like.post_id === object.post.id) {
@@ -90,7 +125,6 @@ const updateLike = (object) => {
             id = like.id;
         }
     }
-
     if (deleteLike) {
         router.delete('/likes/' + id, {
             onFinish: () => {
@@ -179,9 +213,15 @@ const updatedPost = (object) => {
                 <LikesSection
                     :post="post"
                     :user="user"
+                    :addComment="addComment"
+                    :deleteFunc="deleteFunc"
                     @like="updateLike($event)"
-                    @bookmark="updateBookmark($event)"
-                />
+                    @favorite="updateFavorite($event)"
+                    @deleteSelected="deleteFunc($event)"
+                    @selectedPost="currentPost = $event.post; openOverlay = true"
+                    @updatePost="updatedPost($event)"
+                  />
+
 
                 <div class="text-black font-extrabold py-1">
                   {{ post.Likes?.length }}
@@ -228,10 +268,6 @@ const updatedPost = (object) => {
         @close="deleteType = null; id = null"
     />
 
-   <LikesSection
-        v-if="openOverlay"
-        @closeOverlay="openOverlay = false"
-        /> 
 
 </template>
 

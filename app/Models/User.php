@@ -24,6 +24,7 @@ class User extends Authenticatable
         'email',
         'password',
         'bio',
+        'favoritePosts',
     ];
 
     /**
@@ -43,6 +44,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'favoritePosts' => 'array',
 
     ];
 
@@ -55,7 +57,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
-
+    
+    public function favoritePosts()
+    {
+        return $this->belongsToMany(Post::class, 'favorite_posts', 'user_id', 'post_id');
+    }
+    
   
 
 }
