@@ -218,13 +218,14 @@ const getUploadedImage = (e) => {
                 class="w-full flex items-center justify-between border-t border-t-gray-300"
             >
                 <div
-                    class="p-3 w-1/4 flex justify-center border-t border-t-gray-900"
-              
+                    class="p-3 w-1/4 flex justify-center  "
+                    :class="{ 'border-t': isGridIconBlue, 'border-t-gray-800': isGridIconBlue, 'border-t-gray-900': !isGridIconBlue }"
+                    @click="toggleGridIconColor"
                     >
                     <Grid
                        :size="30"
                        :fillColor="isGridIconBlue ? 'blue' : '#8E8E8E'"
-                       @click="toggleGridIconColor"
+                       
                      />
                 </div>
                 <div class="p-3 w-1/4 flex justify-center">
@@ -236,6 +237,7 @@ const getUploadedImage = (e) => {
                 </div>
                 <div
                   class="p-3 w-1/4 flex justify-center cursor-pointer"
+                  :class="{ 'border-t': isBookmarkIconBlue, 'border-t-gray-800': isBookmarkIconBlue, 'border-t-gray-900': !isBookmarkIconBlue }"
                   @click="toggleBookmarkIconColor"
                    >
                   <BookmarkOutline
@@ -263,12 +265,14 @@ const getUploadedImage = (e) => {
                     class="flex items-center justify-between max-w-[600px] mx-auto font-extrabold text-gray-400 text-[15px]"
                 >
                     <div
-                        class="p-[17px] w-1/4 flex justify-center items-center border-t border-t-gray-900"
+                        class="p-[17px] w-1/4 flex justify-center items-center border-t"
+                        :class="{ 'border-t': !isGridIconBlue, 'border-t-gray-800': isGridIconBlue }"
+                        @click="toggleGridIconColor"
                     >
                     <Grid
                        :size="30"
                        :fillColor="isGridIconBlue ? 'blue' : '#8E8E8E'"
-                       @click="toggleGridIconColor"
+                       
                      />
                         <div class="ml-2 -mb-[1px] text-gray-900">POSTS</div>
                     </div>
@@ -284,6 +288,7 @@ const getUploadedImage = (e) => {
                     </div>
                     <div
                         class="p-[17px] w-1/4 flex justify-center items-center cursor-pointer"
+                        :class="{ 'border-t': isBookmarkIconBlue, 'border-t-gray-800': isBookmarkIconBlue }"
                         @click="toggleBookmarkIconColor"
                         >
                         <BookmarkOutline
@@ -316,7 +321,7 @@ const getUploadedImage = (e) => {
 </div>
 
 <div v-if="showFavoritePostsOverlay">
-  <div class="grid md:gap-4 gap-1 grid-cols-3 absolute">
+  <div class="grid md:gap-4 gap-1 grid-cols-3 absolute ">
     <FavoritePostsOverlay
     :favoritePosts="favoritePosts"
     @selectedPost="selectedPost = $event"
