@@ -25,7 +25,7 @@ let showCreatePost = ref(false);
         <img class="w-[105px] ml-6 cursor-pointer" src="/insta-logo.png">
        </Link>
 
-       <div class="flex items-center w-[50%]">
+       <div class="flex items-center w-[50%] mr-3">
         <div class="flex items-center w-full bg-gray-100 rounded-lg">
             <Magnify class="pl-4" fillColor="#8E8e8e" :size="27" />
             <input
@@ -41,7 +41,8 @@ let showCreatePost = ref(false);
             "
             >
         </div>
-        <HeartOutline class="pl-4 pr-3" fillColor="000000" :size="27" />
+        <HeartOutline class="pl-4 pr-3 cursor-pointer" fillColor="000000" :size="27" />
+        <SendOutline fillColor="#000000" :size="27" class="cursor-pointer" />
       </div>
       </div>
       </div>

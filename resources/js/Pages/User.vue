@@ -21,7 +21,7 @@ const { postsByUser, user } = toRefs(props);
 
 const favoritePosts = ref(props.user.favoritePosts || []);
 
-const isGridIconBlue = ref(false);
+const isGridIconBlue = ref(true);
 const isBookmarkIconBlue = ref(false);
 const showFavoritePostsOverlay = ref(false);
 
@@ -219,7 +219,7 @@ const getUploadedImage = (e) => {
             >
                 <div
                     class="p-3 w-1/4 flex justify-center  "
-                    :class="{ 'border-t': isGridIconBlue, 'border-t-gray-800': isGridIconBlue, 'border-t-gray-900': !isGridIconBlue }"
+                    :class="{ 'border-t': isGridIconBlue, 'border-t-gray-900': isGridIconBlue, 'border-t-gray-900': !isGridIconBlue }"
                     @click="toggleGridIconColor"
                     >
                     <Grid
@@ -237,7 +237,7 @@ const getUploadedImage = (e) => {
                 </div>
                 <div
                   class="p-3 w-1/4 flex justify-center cursor-pointer"
-                  :class="{ 'border-t': isBookmarkIconBlue, 'border-t-gray-800': isBookmarkIconBlue, 'border-t-gray-900': !isBookmarkIconBlue }"
+                  :class="{ 'border-t': isBookmarkIconBlue, 'border-t-gray-900': isBookmarkIconBlue, 'border-t-gray-900': !isBookmarkIconBlue }"
                   @click="toggleBookmarkIconColor"
                    >
                   <BookmarkOutline
@@ -266,7 +266,7 @@ const getUploadedImage = (e) => {
                 >
                     <div
                         class="p-[17px] w-1/4 flex justify-center items-center border-t"
-                        :class="{ 'border-t': !isGridIconBlue, 'border-t-gray-800': isGridIconBlue }"
+                        :class="{ 'border-t': !isGridIconBlue, 'border-t-gray-900': isGridIconBlue }"
                         @click="toggleGridIconColor"
                     >
                     <Grid
@@ -288,7 +288,7 @@ const getUploadedImage = (e) => {
                     </div>
                     <div
                         class="p-[17px] w-1/4 flex justify-center items-center cursor-pointer"
-                        :class="{ 'border-t': isBookmarkIconBlue, 'border-t-gray-800': isBookmarkIconBlue }"
+                        :class="{ 'border-t': isBookmarkIconBlue, 'border-t-gray-900': isBookmarkIconBlue }"
                         @click="toggleBookmarkIconColor"
                         >
                         <BookmarkOutline
