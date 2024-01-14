@@ -25,6 +25,19 @@ const isGridIconBlue = ref(true);
 const isBookmarkIconBlue = ref(false);
 const showFavoritePostsOverlay = ref(false);
 
+
+const getRandomNumber = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+const generateRandomCounts = () => {
+    const followersCount = getRandomNumber(100, 500);
+    const followingCount = getRandomNumber(200, 600);
+    return { followersCount, followingCount };
+};
+
+const { followersCount, followingCount } = generateRandomCounts();
+
 const toggleGridIconColor = () => {
     isGridIconBlue.value = !isGridIconBlue.value;
     isBookmarkIconBlue.value = false; 
@@ -176,14 +189,14 @@ const getUploadedImage = (e) => {
                                 }}</span>
                                 posts
                             </div>
-                            <div class="mr-6">
-                                <span class="font-extrabold">123</span>
-                                followers
-                            </div>
-                            <div class="mr-6">
-                                <span class="font-extrabold">456</span>
-                                following
-                            </div>
+                            <div class="text-center p-3">
+                        <div class="font-extrabold">{{ followersCount }}</div>
+                       <div class="text-gray-400 font-semibold -mt-1.5">followers</div>
+                     </div>
+                           <div class="text-center p-3">
+                     <div class="font-extrabold">{{ followingCount }}</div>
+                      <div class="text-gray-400 font-semibold -mt-1.5">following</div>
+                         </div>
                         </div>
                     </div>
                 </div>
@@ -201,13 +214,13 @@ const getUploadedImage = (e) => {
                     <div class="text-gray-400 font-semibold -mt-1.5">posts</div>
                 </div>
                 <div class="text-center p-3">
-                    <div class="font-extrabold">43</div>
+                  <div class="font-extrabold">{{ followersCount }}</div>
                     <div class="text-gray-400 font-semibold -mt-1.5">
                         followers
                     </div>
                 </div>
                 <div class="text-center p-3">
-                    <div class="font-extrabold">55</div>
+                  <div class="font-extrabold">{{ followingCount }}</div>
                     <div class="text-gray-400 font-semibold -mt-1.5">
                         following
                     </div>
