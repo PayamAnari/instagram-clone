@@ -309,25 +309,25 @@ const getUploadedImage = (e) => {
                     </div>
                 </div>
             </div>
-            <div v-if="!showFavoritePostsOverlay">
-    <div class="grid md:gap-4 gap-1 grid-cols-3 relative">
-        <div v-for="postByUser in postsByUser.data" :key="postByUser">
-            <ContentOverlay
-                :postByUser="postByUser"
-                @selectedPost="data.post = $event"
-            />
-        </div>
-    </div>
-</div>
+                 <div v-if="!showFavoritePostsOverlay">
+                  <div class="grid md:gap-4 gap-1 grid-cols-3 relative">
+                    <div v-for="postByUser in postsByUser.data" :key="postByUser">
+                      <ContentOverlay
+                          :postByUser="postByUser"
+                          @selectedPost="data.post = $event"
+                       />
+              </div>
+            </div>
+          </div>
 
-<div v-if="showFavoritePostsOverlay">
-  <div class="grid md:gap-4 gap-1 grid-cols-3 absolute ">
-    <FavoritePostsOverlay
-    :favoritePosts="favoritePosts"
-    @selectedPost="selectedPost = $event"
-/>
- </div>
-</div>
+                 <div v-if="showFavoritePostsOverlay">
+                    <div class="grid md:gap-4 gap-1 grid-cols-3 relative ">
+                        <FavoritePostsOverlay
+                           :favoritePosts="favoritePosts"
+                           @selectedPost="selectedPost = $event"
+                         />
+                      </div>
+                 </div>
             <div class="pb-20"></div>
         </div>
     </MainLayout>
