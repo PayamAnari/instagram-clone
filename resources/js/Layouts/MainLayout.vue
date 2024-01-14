@@ -42,7 +42,7 @@ let showCreatePost = ref(false);
             >
         </div>
         <HeartOutline class="pl-4 pr-3 cursor-pointer" fillColor="000000" :size="27" />
-        <SendOutline fillColor="#000000" :size="27" class="cursor-pointer" />
+        <SendOutline fillColor="#000000" :size="33" class="cursor-pointer" />
       </div>
       </div>
       </div>
@@ -56,6 +56,7 @@ let showCreatePost = ref(false);
           <ChevronLeft :size="30" class="cursor-pointer" />
       </Link>
       <div class="font-extrabold mr-[140px] text-lg">{{ $page.props.auth.user.name }}</div>
+      <Plus @click="$event => showCreatePost = true" fillColor="#000000" :size="33" class="cursor-pointer pl-[30px]" />
       <Link :href="route('logout')" as="button" method="post">
             <MenuItem iconString="Log out"/>
         </Link>

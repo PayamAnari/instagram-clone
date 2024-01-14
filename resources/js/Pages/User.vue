@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, toRefs, ref } from "vue";
+import { reactive, toRefs, ref, computed } from "vue";
 import { Head, Link, router } from "@inertiajs/vue3";
 
 import MainLayout from "@/Layouts/MainLayout.vue";
@@ -50,7 +50,12 @@ const toggleBookmarkIconColor = () => {
     showFavoritePostsOverlay.value = true; 
 };
 
+function shouldDisplayFollowButton(currentUser, profileUser) {
+  const isCurrentUserProfile = profileUser.id === currentUser.id;
+  const isAlreadyFollowing = profileUser.isFollowing; 
 
+  return !isCurrentUserProfile && !isAlreadyFollowing;
+}
 
 const addComment = (object) => {
     router.post(
@@ -181,6 +186,22 @@ const getUploadedImage = (e) => {
                             Edit Profile
                         </button>
                     </Link>
+                    
+                    <div class="mb-5">
+                      
+                            <button
+                            v-if="shouldDisplayFollowButton($page.props.auth.user, user)"
+                                class="md:block hidden md:mr-6 p-1 px-4 w-64 rounded-lg text-[17px] font-extrabold text-white bg-blue-500 hover:bg-blue-300 cursor-pointer"
+                            >
+                              Follow
+                            </button>
+                    </div>
+                        <button
+                        v-if="shouldDisplayFollowButton($page.props.auth.user, user)"
+                            class="md:hidden mr-6 p-1 px-4 max-w-[260px] w-full rounded-lg text-[17px] font-extrabold text-white bg-blue-500 hover:bg-blue-300 cursor-pointer"
+                        >
+                            Follow
+                        </button>
                     <div class="md:block hidden">
                         <div class="flex items-center text-[18px]">
                             <div class="mr-6">
@@ -232,7 +253,7 @@ const getUploadedImage = (e) => {
             >
                 <div
                     class="p-3 w-1/4 flex justify-center  "
-                    :class="{ 'border-t': isGridIconBlue, 'border-t-gray-900': isGridIconBlue, 'border-t-gray-900': !isGridIconBlue }"
+                    :class="{ 'border-t': isGridIconBlue, 'border-t-black': isGridIconBlue, 'border-t-gray-900': !isGridIconBlue }"
                     @click="toggleGridIconColor"
                     >
                     <Grid
@@ -250,7 +271,7 @@ const getUploadedImage = (e) => {
                 </div>
                 <div
                   class="p-3 w-1/4 flex justify-center cursor-pointer"
-                  :class="{ 'border-t': isBookmarkIconBlue, 'border-t-gray-900': isBookmarkIconBlue, 'border-t-gray-900': !isBookmarkIconBlue }"
+                  :class="{ 'border-t': isBookmarkIconBlue, 'border-t-black': isBookmarkIconBlue, 'border-t-gray-900': !isBookmarkIconBlue }"
                   @click="toggleBookmarkIconColor"
                    >
                   <BookmarkOutline
