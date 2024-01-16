@@ -15,6 +15,8 @@ import AccountBoxOutline from "vue-material-design-icons/AccountBoxOutline.vue";
 
 let data = reactive({ post: null });
 const form = reactive({ file: null });
+const selectedPost = ref(null);
+
 
 const props = defineProps({ postsByUser: Object, user: Object });
 const { postsByUser, user } = toRefs(props);
@@ -373,8 +375,10 @@ const getUploadedImage = (e) => {
                  <div v-if="showFavoritePostsOverlay">
                     <div class="grid md:gap-4 gap-1 grid-cols-3 relative ">
                         <FavoritePostsOverlay
+                            :postsByUser="postsByUser"
                            :favoritePosts="favoritePosts"
-                           @selectedPost="selectedPost = $event"
+                           :selectedPost="postsByUser.data"
+                           @selectedPost="post = $event"
                          />
                       </div>
                  </div>

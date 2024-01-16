@@ -4,10 +4,10 @@ import Heart from 'vue-material-design-icons/Heart.vue';
 import Comment from 'vue-material-design-icons/Comment.vue';
 
 defineEmits(['selectedPost'])
-const props = defineProps(['postByUser', 'favoritePosts', 'selectedPost']);
-const { postByUser } = toRefs(props);
-let isHover = ref(false);
+const props = defineProps(['postsByUser', 'favoritePosts', 'selectedPost']);
+const { postsByUser } = toRefs(props);
 
+const hoverStates = ref({});
 
 const getLikesCount = (post) => {
   return post ? post.likes.length : 0;
@@ -21,20 +21,21 @@ const getFavoritePostImage = (post) => {
   return post ? post.file : '';
 };
 
+
 </script>
 
 <template>
   <div
-    @mouseenter="isHover = true"
-    @mouseleave="isHover = false"
     v-for="post in favoritePosts"
     :key="post.post_id"
-    class="flex items-center justify-center cursor-pointer relative "
-    @click="$emit('selectedPost', post)"
+    class="flex items-center justify-center cursor-pointer relative"
+    @mouseenter="hoverStates[post.post_id] = true"
+    @mouseleave="hoverStates[post.post_id] = false"
+    @click="$emit('selectedPost', post.post_id)"
   >
     <div
-      v-if="isHover"
-      :class="isHover ? 'bg-black bg-opacity-40' : ''"
+      v-if="hoverStates[post.post_id]"
+      :class="hoverStates[post.post_id] ? 'bg-black bg-opacity-40' : ''"
       class="absolute w-full h-full z-50 flex items-center justify-around text-lg font-extrabold text-white"
     >
       <div class="flex items-center justify-around w-[50%]">
@@ -54,5 +55,4 @@ const getFavoritePostImage = (post) => {
       :src="getFavoritePostImage(post)" alt="Favorite Post"
     />
   </div>
-
 </template>

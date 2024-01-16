@@ -40,7 +40,6 @@ onMounted(() => {
 const updateFavorite = (object) => {
 
     const postId = object.post && 'id' in object.post ? object.post.id : null;
-
     if (!postId) {
         return;
     }
@@ -48,13 +47,13 @@ const updateFavorite = (object) => {
     const favorite = object.user && object.user.favoritePosts && object.user.favoritePosts.find(f => f.post_id === postId);
 
     if (favorite) {
-        router.delete(`/favorite-posts/${favorite.post_id}`, {
+         router.delete(`/favorite-posts/${favorite.post_id}`, {
             onFinish: () => {
               console.log('Deleted')
-                if (object.user && object.user.favoritePosts) {
-                    object.user.favoritePosts = 
-                    object.user.favoritePosts.filter(f => f.post_id !== postId);
-                    updatedPost(object);
+              if (object.user && object.user.favoritePosts) {
+                 object.user.favoritePosts = 
+                 object.user.favoritePosts.filter(f => f.post_id !== postId);
+                 updatedPost(object);
                 }
             },
         });
@@ -66,13 +65,13 @@ const updateFavorite = (object) => {
             onFinish: () => {
               console.log('Added')
                 if (object.user && object.user.favoritePosts) {
-                    object.user.favoritePosts.push({ post_id: postId });
-                    updatedPost(object);
-                }
+                object.user.favoritePosts.push({ post_id: postId });
+                updatedPost(object);
+                 }
             },
         });
-    }
-};
+       }
+ };
 
 const addComment = (object) => {
     router.post('/comments', {

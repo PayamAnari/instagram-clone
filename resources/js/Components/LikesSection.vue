@@ -1,5 +1,5 @@
 <script setup>
-import { computed, toRefs, ref } from 'vue';
+import { computed, toRefs, ref, watch } from 'vue';
 import { usePage, router } from '@inertiajs/vue3';
 
 import ShowPostOverlay from '@/Components/ShowPostOverlay.vue';
@@ -16,12 +16,11 @@ const { post } = toRefs(props);
 
 
 let openOverlay = ref(false);
-let isBookmarked = ref(false);
-
 
 const emit = defineEmits(['like', 'closeOverlay', 'favorite', 'removeFavorite', 'selectedPost' ]);
 
 const user = usePage().props.auth.user;
+
 
 const addComment = (object) => {
     router.post('/comments', {
@@ -65,18 +64,14 @@ const isHeartActiveComputed = computed(() => {
     return isTrue;
 });
 
+const isBookmarkedComputed = computed(() => {
+ 
+  if (!user.favoritePosts || user.favoritePosts.length === 0) {
+    return false;
+  }
 
-const toggleFavorite = () => {
-  
-        if (!isBookmarked.value) {
-            emit('favorite', { post: post.value, user });
-        } else {
-            emit('removeFavorite', { post: post.value, user });
-        }
-        isBookmarked.value = !isBookmarked.value;
-   
-};
-const isBookmarkedComputed = computed(() => isBookmarked.value);
+  return user.favoritePosts.some(favorite => favorite.post_id === post.value.id);
+});
 
 
 const handleClick = () => {
@@ -87,8 +82,6 @@ const handleClick = () => {
     });
     openOverlay.value = true;
 };
-
-
 
 </script>
 
@@ -103,11 +96,12 @@ const handleClick = () => {
                 <CommentOutline @click="handleClick" class="pl-3 pt-[10px] cursor-pointer" :size="30" />
             <SendOutline class="pl-3 pt-[10px]" :size="30" />
         </div>
-        <button @click="toggleFavorite" class="-mt-[14px]">
-      <BookmarkOutline
+        <button @click="$emit('favorite', { post, user })" class="-mt-[14px]">
+      <BookmarkOutline v-if="!isBookmarkedComputed" class="pl-3 cursor-pointer" fillColor="#000000" :size="30" />
+      <BookmarkOutline v-else
         class="pl-3 cursor-pointer"
-        :fillColor="isBookmarkedComputed ? '#FF0000' : ''"
-        :size="30"
+        fillColor="#FF0000"
+        size="30"
       />
     </button>
 

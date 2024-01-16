@@ -3,7 +3,6 @@ import { ref, toRefs } from 'vue';
 
 import Heart from 'vue-material-design-icons/Heart.vue';
 import Comment from 'vue-material-design-icons/Comment.vue';
-import FavoritePostsOverlay from './FavoritePostsOverlay.vue';
 
 defineEmits(['selectedPost'])
 const props = defineProps(['postByUser']);
@@ -44,8 +43,4 @@ let isHover = ref(false);
         >
     </div>
    
-   <FavoritePostsOverlay 
-   :postByUser="postByUser"
-   @selectedPost="selectedPost = $event"
-   />
 </template>

@@ -39,6 +39,7 @@ const handleEmojiSelection = (emoji) => {
     
 };
 
+
 </script>
 
 
@@ -61,7 +62,7 @@ const handleEmojiSelection = (emoji) => {
                 <div class="md:max-w-[500px] w-full relative">
                     <div class="flex items-center justify-between p-3 border-b">
                         <div class="flex items-center">
-                            <img class="rounded-full w-[38px] h-[38px]" :src="post.user.file">
+                            <img  class="rounded-full w-[38px] h-[38px]" :src="post.user.file">
                             <div class="ml-4 font-extrabold text-[15px]">{{ post.user.name }}</div>
                             <div class="flex items-center text-[15px] text-gray-500">
                                 <span class="-mt-5 ml-2 mr-[5px] text-[35px]">.</span>
@@ -137,10 +138,8 @@ const handleEmojiSelection = (emoji) => {
 
                     <div class="absolute flex border bottom-0 w-full max-h-[200px] bg-white overflow-auto">
                       <EmoticonHappyOutline @click="showEmojiPicker = !showEmojiPicker" class="pl-3 pt-[10px]" :size="30" />
-                      <EmojiPicker v-if="showEmojiPicker" :native="true" @select="handleEmojiSelection" placement="top-start" />
+                      <EmojiPicker v-if="showEmojiPicker" :native="true" @select="handleEmojiSelection" placement="bottom-start" />
                         <textarea
-                        id="commentTextarea"
-
                             ref="textarea"
                             :oninput="textareaInput"
                             v-model="comment"
