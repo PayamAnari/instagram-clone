@@ -373,13 +373,13 @@ const getUploadedImage = (e) => {
           </div>
 
                  <div v-if="showFavoritePostsOverlay">
-                    <div class="grid md:gap-4 gap-1 grid-cols-3 relative ">
+                    <div class="grid md:gap-4 gap-1 grid-cols-3 relative ">                  
                         <FavoritePostsOverlay
-                            :postsByUser="postsByUser"
-                           :favoritePosts="favoritePosts"
-                           :selectedPost="postsByUser.data"
-                           @selectedPost="post = $event"
+                           :postsByUser="postsByUser"
+                           :favoritePosts="favoritePosts"                         
+                           @selectedPost="data.post = $event"
                          />
+                        
                       </div>
                  </div>
             <div class="pb-20"></div>

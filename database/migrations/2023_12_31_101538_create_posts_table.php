@@ -22,9 +22,11 @@ return new class extends Migration
 
             $table->text('text');
             $table->string('file');
+            $table->text('location')->nullable(false);
 
             $table->timestamps();
         });
+        \Log::info($request->all());
     }
 
     /**

@@ -19,6 +19,7 @@ class AllPostsCollection extends ResourceCollection
                 'id' => $post->id,
                 'text' => $post->text,
                 'file' => $post->file,
+                'location' => $post->location,
                 'created_at' => $post->created_at->format('M D Y'),
                 'comments' => $post->comments->map(function ($comment) {
                     return [
@@ -32,18 +33,19 @@ class AllPostsCollection extends ResourceCollection
                     ];
                 }),
                 'Likes' => $post->likes->map(function ($like) {
-                  return [
-                    'id' => $like->id,
-                    'user_id' => $like->user_id,
-                    'post_id' => $like->post_id,
-                  ];
-        
+                    return [
+                        'id' => $like->id,
+                        'user_id' => $like->user_id,
+                        'post_id' => $like->post_id,
+                    ];
+
                 }),
                 'user' => [
                     'id' => $post->user->id,
                     'name' => $post->user->name,
                     'file' => $post->user->file,
-                ]
+                    'favorite_posts' => $post->user->favoritePosts ?? [],
+                ],
             ];
         });
     }

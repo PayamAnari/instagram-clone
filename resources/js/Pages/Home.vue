@@ -7,7 +7,6 @@ import MainLayout from '@/Layouts/MainLayout.vue';
 import LikesSection from '@/Components/LikesSection.vue'
 import ShowPostOverlay from '@/Components/ShowPostOverlay.vue'
 import ShowPostOptionsOverlay from '@/Components/ShowPostOptionsOverlay.vue'
-import FavoritePostsOverlay from '@/Components/FavoritePostsOverlay.vue'
 
 
 import 'vue3-carousel/dist/carousel.css'
@@ -150,7 +149,7 @@ const updatedPost = (object) => {
         }
     }
 }
-
+console.log(posts)
 
 </script>
 
@@ -192,19 +191,20 @@ const updatedPost = (object) => {
                         </Link>
                         <div class="flex items-center text-[15px] text-gray-500">
                             <span class="-mt-5 ml-2 mr-[5px] text-[35px]">.</span>
-                            <div>{{ post.created_at }}</div>
-                        </div>
-                    </div>
-
+                            <div>{{ post.created_at }}</div>                        
+                        </div>                                         
+                    </div>                   
                     <button
                        v-if="user.id === post.user.id"
                        @click=" deleteType = 'Post'; id = post.id"
                      >
                        <DotsHorizontal class="cursor-pointer" :size="27" />
                     </button>
-
                 </div>
-
+                <div class="flex text-[15px] text-gray-600 ml-[53px] -mt-4 mb-1">
+                  <div v-if="post.location">{{ post.location }}</div>
+                </div>
+                
                 <div class="bg-black rounded-lg w-full min-h-[400px] flex items-center">
                     <img class="mx-auto w-full" :src="post.file" />
                 </div>

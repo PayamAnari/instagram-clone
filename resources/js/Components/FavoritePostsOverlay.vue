@@ -4,10 +4,12 @@ import Heart from 'vue-material-design-icons/Heart.vue';
 import Comment from 'vue-material-design-icons/Comment.vue';
 
 defineEmits(['selectedPost'])
-const props = defineProps(['postsByUser', 'favoritePosts', 'selectedPost']);
+const props = defineProps(['postsByUser', 'favoritePosts']);
 const { postsByUser } = toRefs(props);
 
 const hoverStates = ref({});
+
+console.log(postsByUser);
 
 const getLikesCount = (post) => {
   return post ? post.likes.length : 0;

@@ -14,19 +14,24 @@
     const form = reactive({
         text: null,
         file: null,
+        location: null,
     })
 
     let isValidFile = ref(null)
     let fileDisplay = ref('')
     let textarea = ref('')
+    let input = ref('')
     let error = ref({
         text: null,
         file: null,
+        location: null,
     })
 
     const createPostFunc = () => {
         error.value.text = null
         error.value.file = null
+        error.value.location = null
+        
 
         router.post('/posts', form, {
             forceFormData: true,
@@ -34,6 +39,7 @@
             onError: errors => {
                 errors && errors.text ? error.value.text = errors.text : ''
                 errors && errors.file ? error.value.file = errors.file : ''
+                errors && errors.location ? error.value.location = errors.location : ''
             },
             onSuccess: () => {
                 closeOverlay()
@@ -63,6 +69,7 @@
     const closeOverlay = () => {
         form.text = null
         form.file = null
+        form.location = null
         fileDisplay.value = ''
         emit('close')
     }
@@ -139,6 +146,23 @@
 
                     <div class="flex items-center justify-between border-b p-3">
                         <div class="text-lg font-extrabold text-gray-500">Add Location</div>
+                          <input
+                              ref="input"
+                              v-model="form.location"
+                              type="text"
+                              placeholder="Add..."
+                              class="
+                                placeholder-gray-500
+                                w-full
+                                border-0
+                                mt-2
+                                mb-2
+                                z-50
+                                focus:ring-0
+                                text-gray-600
+                                text-[18px]
+                            "
+                          >
                         <MapMarkerOutline :size="27"/>
                     </div>
 

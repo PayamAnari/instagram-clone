@@ -9,7 +9,6 @@ const props = defineProps(['postByUser']);
 const { postByUser } = toRefs(props);
 let isHover = ref(false);
 
-
 </script>
 
 <template>

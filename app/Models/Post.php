@@ -11,22 +11,22 @@ class Post extends Model
 
     public function user()
     {
-       return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function comments()
     {
-       return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+        return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
     }
 
     public function likes()
     {
-       return $this->hasMany(Like::class);
+        return $this->hasMany(Like::class);
     }
-    
+
     public function favoritePosts()
-{
-    return $this->belongsToMany(Post::class, 'favorite_posts', 'user_id', 'post_id');
-}
+    {
+        return $this->belongsToMany(Post::class, 'favorite_posts', 'user_id', 'post_id');
+    }
 
 }
