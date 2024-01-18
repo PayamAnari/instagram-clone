@@ -17,7 +17,7 @@ const { post } = toRefs(props);
 
 let openOverlay = ref(false);
 
-const emit = defineEmits(['like', 'closeOverlay', 'favorite', 'removeFavorite', 'selectedPost' ]);
+const emit = defineEmits(['like', 'favorite', 'removeFavorite', 'selectedPost' ]);
 
 const user = usePage().props.auth.user;
 
@@ -80,7 +80,6 @@ const handleClick = () => {
         addComment,
         deleteFunc,
     });
-    openOverlay.value = true;
 };
 
 </script>

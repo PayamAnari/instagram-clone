@@ -76,6 +76,9 @@ const handleEmojiSelection = (emoji) => {
                             <DotsHorizontal class="cursor-pointer" :size="27" />
                         </button>
                     </div>
+                    <div class="flex text-[15px] text-gray-600 ml-[66px] -mt-6 mb-1">
+                  <div>{{ post.location }}</div>
+                </div>
 
                     <div class="overflow-y-auto h-[calc(100%-170px)]">
                         <div class="flex items-center justify-between p-3">

@@ -149,7 +149,6 @@ const updatedPost = (object) => {
         }
     }
 }
-console.log(posts)
 
 </script>
 
@@ -202,7 +201,7 @@ console.log(posts)
                     </button>
                 </div>
                 <div class="flex text-[15px] text-gray-600 ml-[53px] -mt-4 mb-1">
-                  <div v-if="post.location">{{ post.location }}</div>
+                  <div>{{ post.location }}</div>
                 </div>
                 
                 <div class="bg-black rounded-lg w-full min-h-[400px] flex items-center">
@@ -266,7 +265,7 @@ console.log(posts)
         "
         @close="deleteType = null; id = null"
     />
-
+  
 
 </template>
 

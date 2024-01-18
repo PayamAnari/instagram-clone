@@ -25,9 +25,9 @@ defineProps({
     <AuthenticatedLayout>
         <template #header>
           <div class="flex justify-between">
-            <Link :href="route('users.show', { id: $page.props.auth.user.id })" class="font-semibold text-blue-500 cursor-pointer mt-1">Cancel</Link>
+            <Link href="/" class="font-semibold text-blue-500 cursor-pointer mt-1">Cancel</Link>
             <h2 class="font-semibold text-2xl text-center text-gray-800 leading-tight">Edit Profile</h2>
-            <Link href="/" class="font-semibold text-blue-500 cursor-pointer mt-1">Done</Link>
+            <Link :href="route('users.show', { id: $page.props.auth.user.id })" class="font-semibold text-blue-500 cursor-pointer mt-1">Done</Link>
           </div>
           </template>
         <div class="py-12">

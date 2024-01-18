@@ -3,13 +3,12 @@ import { ref, defineProps, defineEmits, toRefs } from 'vue';
 import Heart from 'vue-material-design-icons/Heart.vue';
 import Comment from 'vue-material-design-icons/Comment.vue';
 
-defineEmits(['selectedPost'])
-const props = defineProps(['postsByUser', 'favoritePosts']);
-const { postsByUser } = toRefs(props);
-
+const emit = defineEmits(['selectedPost' ]);
+const props = defineProps(['favoritePosts', 'user']);
+const { favoritePosts, user } = toRefs(props);
 const hoverStates = ref({});
 
-console.log(postsByUser);
+
 
 const getLikesCount = (post) => {
   return post ? post.likes.length : 0;
@@ -23,6 +22,14 @@ const getFavoritePostImage = (post) => {
   return post ? post.file : '';
 };
 
+const handleClick = () => {
+  const posts = user.value.favoritePosts;
+  for (const post of posts) {
+    console.log(post);
+    emit('selectedPost', post);
+  }
+}
+  
 
 </script>
 
@@ -33,7 +40,7 @@ const getFavoritePostImage = (post) => {
     class="flex items-center justify-center cursor-pointer relative"
     @mouseenter="hoverStates[post.post_id] = true"
     @mouseleave="hoverStates[post.post_id] = false"
-    @click="$emit('selectedPost', post.post_id)"
+    @click="() => handleClick(posts)"
   >
     <div
       v-if="hoverStates[post.post_id]"

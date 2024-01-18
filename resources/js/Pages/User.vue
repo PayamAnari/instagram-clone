@@ -15,14 +15,11 @@ import AccountBoxOutline from "vue-material-design-icons/AccountBoxOutline.vue";
 
 let data = reactive({ post: null });
 const form = reactive({ file: null });
-const selectedPost = ref(null);
 
 
 const props = defineProps({ postsByUser: Object, user: Object });
 const { postsByUser, user } = toRefs(props);
-
 const favoritePosts = ref(props.user.favoritePosts || []);
-
 const isGridIconBlue = ref(true);
 const isBookmarkIconBlue = ref(false);
 const showFavoritePostsOverlay = ref(false);
@@ -194,7 +191,7 @@ const getUploadedImage = (e) => {
                     class="flex mb-5">
                       
                             <button
-                                class="md:block hidden md:mr-6 p-1 px-4 w-40 rounded-lg text-[17px] font-extrabold text-white bg-blue-500 hover:bg-blue-300 cursor-pointer"
+                                class="md:block hidden md:mr-3 p-1 px-4 w-40 rounded-lg text-[17px] font-extrabold text-white bg-blue-500 hover:bg-blue-300 cursor-pointer"
                             >
                               Follow
                             </button>
@@ -206,15 +203,15 @@ const getUploadedImage = (e) => {
                     </div>
                     <div
                     v-if="shouldDisplayFollowButton($page.props.auth.user, user)"
-                    class="flex "
+                    class="flex justify-center"
                     >
                         <button
-                            class="md:hidden mr-6 p-1 px-4 max-w-[140px] w-full rounded-lg text-[17px] font-extrabold text-white bg-blue-500 hover:bg-blue-300 cursor-pointer "
+                            class="md:hidden mr-2 p-1 px-4 max-w-[160px] w-full rounded-lg text-[17px] font-extrabold text-white bg-blue-500 hover:bg-blue-300 cursor-pointer "
                         >
                             Follow
                         </button>
                         <button
-                        class="md:hidden mr-6 p-1 px-4 max-w-[140px] w-full rounded-lg text-[17px] font-extrabold text-white bg-gray-400 hover:bg-gray-300 cursor-pointer  "
+                        class="md:hidden mr-4 p-1 px-4 max-w-[160px] w-full rounded-lg text-[17px] font-extrabold text-white bg-gray-400 hover:bg-gray-300 cursor-pointer  "
                         >
                          Message
                         </button>
@@ -373,13 +370,12 @@ const getUploadedImage = (e) => {
           </div>
 
                  <div v-if="showFavoritePostsOverlay">
-                    <div class="grid md:gap-4 gap-1 grid-cols-3 relative ">                  
+                    <div class="grid md:gap-4 gap-1 grid-cols-3 relative ">
                         <FavoritePostsOverlay
-                           :postsByUser="postsByUser"
+                           :user="user"
                            :favoritePosts="favoritePosts"                         
-                           @selectedPost="data.post = $event"
+                           @selectedPost="post = $event"
                          />
-                        
                       </div>
                  </div>
             <div class="pb-20"></div>

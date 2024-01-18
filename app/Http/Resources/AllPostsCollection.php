@@ -20,7 +20,8 @@ class AllPostsCollection extends ResourceCollection
                 'text' => $post->text,
                 'file' => $post->file,
                 'location' => $post->location,
-                'created_at' => $post->created_at->format('M D Y'),
+                'created_at' => $post->created_at->format('d F Y'),
+                'favorite_posts' => $post->user->favoritePosts ?? [],
                 'comments' => $post->comments->map(function ($comment) {
                     return [
                         'id' => $comment->id,
@@ -44,7 +45,6 @@ class AllPostsCollection extends ResourceCollection
                     'id' => $post->user->id,
                     'name' => $post->user->name,
                     'file' => $post->user->file,
-                    'favorite_posts' => $post->user->favoritePosts ?? [],
                 ],
             ];
         });

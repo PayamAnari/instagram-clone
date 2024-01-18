@@ -23,4 +23,5 @@ const { deleteType, id } = toRefs(props);
       </div>
 
     </div>
+
 </template>
