@@ -306,3 +306,34 @@ php artisan serve
 </p>
 
 ---
+
+## Contributing
+
+Contributions to the Instagram Clone App are highly encouraged! If you'd like to contribute, please follow these steps:
+
+1. ### Fork the Repository:
+Fork this repository to your GitHub account.
+
+2. ### Create a New Branch: 
+Create a new branch for your feature or bug fix.
+
+3. ### Make Changes: 
+Implement your changes or additions.
+
+4. ### Commit and Push: 
+Commit your changes and push them to your forked repository.
+
+5. ### Submit a Pull Request: 
+Create a pull request to the original repository, explaining your changes and their significance.
+
+---
+## License
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+### Built with ❤️ by Payam Anari
+
+Thank you for exploring the Gym Fitness app! If you have any questions, feedback, or just want to say hi, feel free to [reach out](mailto:anari.p62@gmail.com). Happy fitness journey!
+
+---
