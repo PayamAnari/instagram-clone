@@ -262,11 +262,17 @@ The project follows a structured directory hierarchy, with the main components o
 - **Tailwind CSS** for a utility-first styling approach, ensuring a responsive and visually appealing design.
 - **Vue3 Carousel** and **Vue3 Emoji Picker** for additional engaging features.
 
+### Dependencies:
+
+- **Laravel Mix** for asset compilation
+- **Laravel Breeze** for authentication scaffolding
+- **Intervention Image** for image handling
+- **Ziggy** for named Laravel routes in JavaScript
   
  
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=js,vue,tailwind,mysql,php,laravel,Inertia.js" />
+    <img src="https://skillicons.dev/icons?i=js,vue,tailwind,mysql,php,laravel" />
       <a href="https://inertiajs.com/">
     <img src="https://img.shields.io/badge/Inertia.js-3-lightblue" alt="Inertia.js">
     <img src="https://img.shields.io/badge/Blade-Used-brightgreen" alt="Blade">
