@@ -130,7 +130,7 @@ The Profile Page Vue.js component provides users with a comprehensive interface 
   
   <img width="200" src="https://live.staticflickr.com/65535/53474203161_c0268a01af_w.jpg" alt="Image 2">
   
-  <img width="150" src="https://live.staticflickr.com/65535/53474335678_bd1b89f51c_w.jpg" alt="Image 3">
+  <img width="150" src="https://live.staticflickr.com/65535/53474514694_7bb411e225_w.jpg" alt="Image 3">
 </p>
 
 ---
