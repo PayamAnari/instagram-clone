@@ -6,3 +6,10 @@
 </h1>
 
 ---
+<h3 align="center">
+  <strong>
+      💥 Instagram clone 💥
+  </strong>
+</h3>
+
+---
