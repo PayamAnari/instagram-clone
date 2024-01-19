@@ -240,3 +240,18 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
 - **Vue.js Components:** Utilizes Vue.js 3 and various plugins for enhanced frontend functionality.
 
 ---
+
+## Technologies Used
+
+### Backend:
+
+- **Laravel 10** for robust server-side functionality.
+- **Laravel** Sanctum for secure API authentication.
+- **MySQL database** for efficient data storage.
+
+### Frontend:
+
+- **Vue.js 3** for dynamic and reactive user interfaces.
+- **Inertia.js** for server-side rendering, enhancing frontend performance.
+- **Tailwind CSS** for a utility-first styling approach, ensuring a responsive and visually appealing design.
+- **Vue3 Carousel** and **Vue3 Emoji Picker** for additional engaging features.
