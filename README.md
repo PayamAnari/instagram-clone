@@ -30,3 +30,18 @@
 ### Instagram clone
 
 This Instagram clone is a full-stack web application built using Laravel 10 and Vue.js 3. Users can sign up, log in, and create posts with images, text, and locations. The app supports functionalities like liking posts, adding comments with emojis, saving favorite posts, and managing user profiles.
+
+---
+
+### Home Page
+
+The Home.vue component is a dynamic and engaging Vue.js view designed to create an immersive user experience within your application. Tailored for social media platforms or content-driven websites, this component seamlessly integrates user posts, likes, and comments, offering a visually appealing and responsive interface.
+
+## Features
+
+- **User-Friendly Interface:** Enjoy a user-friendly interface that seamlessly combines user posts, comments, and engagement metrics for an immersive browsing experience.
+- **Interactive Carousel:** The component features a responsive carousel that showcases user profiles, allowing for easy navigation and exploration of diverse content creators.
+- **Real-Time Updates:** Stay updated with real-time interactions such as likes, comments, and post creations, fostering an engaging and dynamic user community.
+- **Post Interaction Options:** Empower users with post interaction options, including liking, commenting, and viewing detailed post information, all within a single view.
+- **Mobile Responsiveness:** Ensure a consistent and visually pleasing layout across devices with mobile responsiveness, adapting to various screen sizes for an optimal user experience.
+- **Vue.js Integration:** Leverage the power of Vue.js to create reactive and modular components, promoting efficient development and easy maintenance.
