@@ -183,7 +183,7 @@ The FavoritePostOverlay component is a sleek and feature-rich Vue.js component d
 <p align="center">
   <img width="400" src="https://live.staticflickr.com/65535/53474634385_7dccab7899_z.jpg" alt="Image 1">
   
-  <img width="200" src="https://live.staticflickr.com/65535/53474320513_3cae692841_w.jpg" alt="Image 2">
+  <img width="200" src="https://live.staticflickr.com/65535/53474634375_26cbcd3d35_w.jpg" alt="Image 2">
   
   <img width="150" src="https://live.staticflickr.com/65535/53474179781_8b1a378ff6_w.jpg" alt="Image 3">
 </p>
