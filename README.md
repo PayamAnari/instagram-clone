@@ -45,3 +45,14 @@ The Home.vue component is a dynamic and engaging Vue.js view designed to create 
 - **Post Interaction Options:** Empower users with post interaction options, including liking, commenting, and viewing detailed post information, all within a single view.
 - **Mobile Responsiveness:** Ensure a consistent and visually pleasing layout across devices with mobile responsiveness, adapting to various screen sizes for an optimal user experience.
 - **Vue.js Integration:** Leverage the power of Vue.js to create reactive and modular components, promoting efficient development and easy maintenance.
+
+<p align="center">
+  <img width="400" src="https://live.staticflickr.com/65535/53473269607_66fe837a6d_z.jpg" alt="Image 1">
+  
+  <img width="200" src="https://live.staticflickr.com/65535/53430543461_5d48a5bcc2_n.jpg" alt="Image 2">
+  
+  <img width="150" src="https://live.staticflickr.com/65535/53430972175_569704179a_n.jpg" alt="Image 3">
+</p>
+
+
+---
