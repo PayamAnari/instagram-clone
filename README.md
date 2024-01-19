@@ -99,7 +99,7 @@ The User.vue component is a versatile Vue.js view designed to showcase user prof
   
   <img width="200" src="https://live.staticflickr.com/65535/53473284787_7ee7847519_w.jpg" alt="Image 2">
   
-  <img width="150" src="https://live.staticflickr.com/65535/53474179781_8b1a378ff6_w.jpg" alt="Image 3">
+  <img width="150" src="https://live.staticflickr.com/65535/53474503884_26966fa559_w.jpg" alt="Image 3">
 </p>
 
 
