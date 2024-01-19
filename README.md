@@ -128,7 +128,7 @@ The Profile Page Vue.js component provides users with a comprehensive interface 
 <p align="center">
   <img width="400" src="https://live.staticflickr.com/65535/53474203141_db3e9548b6_z.jpg" alt="Image 1">
   
-  <img width="200" src="https://live.staticflickr.com/65535/53473287607_7da486dc5c_w.jpg" alt="Image 2">
+  <img width="200" src="https://live.staticflickr.com/65535/53474203161_c0268a01af_w.jpg" alt="Image 2">
   
   <img width="150" src="https://live.staticflickr.com/65535/53474335678_bd1b89f51c_w.jpg" alt="Image 3">
 </p>
