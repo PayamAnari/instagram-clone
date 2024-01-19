@@ -70,3 +70,11 @@ The CreatePostOverlay component is a powerful and intuitive Vue.js component des
 - **Location Tagging:** Seamlessly integrate location tagging for posts, enhancing the contextual information associated with each creation.
 - **Accessibility and Advanced Settings:** The component includes options for users to enhance accessibility and configure advanced settings for their posts.
 - **Responsive Design:** The overlay adapts to various screen sizes, maintaining a consistent and visually appealing layout across devices.
+
+<p align="center">
+  <img width="400" src="https://live.staticflickr.com/65535/53474325438_b4cab44f87_z.jpg" alt="Image 1">
+  
+  <img width="200" src="https://live.staticflickr.com/65535/53430981755_70ed65582d.jpg" alt="Image 2">
+  
+  <img width="150" src="https://live.staticflickr.com/65535/53430873189_243046d450_w.jpg" alt="Image 3">
+</p>
