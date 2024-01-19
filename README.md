@@ -17,7 +17,7 @@
   <img 
     width="1200"
     alt="home"
-    src="https://live.staticflickr.com/65535/53474306983_81aa82b4bc_w.jpg"/>
+    src="https://live.staticflickr.com/65535/53474273501_769ba118f6_z.jpg"/>
 </p>
 
 ---
