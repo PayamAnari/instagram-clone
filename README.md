@@ -150,7 +150,7 @@ The Login and Register Pages Vue.js components provide a streamlined and user-fr
   <p align="center">
   <img width="400" src="https://live.staticflickr.com/65535/53474519474_1ec0fc386b_z.jpg" alt="Image 1">
   
-  <img width="200" src="https://live.staticflickr.com/65535/53474203161_c0268a01af_w.jpg" alt="Image 2">
+  <img width="200" src="https://live.staticflickr.com/65535/53474519469_98380bbc15_n.jpg" alt="Image 2">
 </p>
 
 ## Register Page
