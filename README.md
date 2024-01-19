@@ -221,7 +221,6 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
 
 ## Table of Contents
 - [Key Features](#key-features)
-- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
@@ -238,12 +237,6 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
 - **Dashboard:** Change name, email, bio, password, and delete the account.
 - **Responsive Design:** Optimized for mobile, tablet, and large screens.
 - **Vue.js Components:** Utilizes Vue.js 3 and various plugins for enhanced frontend functionality.
-
----
-
-## Project Structure
-
-The project follows a structured directory hierarchy, with the main components organized as follows:
 
 ---
 
