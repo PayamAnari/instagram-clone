@@ -147,6 +147,12 @@ The Login and Register Pages Vue.js components provide a streamlined and user-fr
 - **Remember Me:** Implement a "Remember Me" functionality with a checkbox for a convenient login experience.
 - **Password Reset:** If enabled, users can reset their passwords directly from the login page.
 
+  <p align="center">
+  <img width="400" src="https://live.staticflickr.com/65535/53474519474_1ec0fc386b_z.jpg" alt="Image 1">
+  
+  <img width="200" src="https://live.staticflickr.com/65535/53474203161_c0268a01af_w.jpg" alt="Image 2">
+</p>
+
 ## Register Page
 
 - **User Registration:** Enable new users to sign up by providing essential details like name, email, and password.
