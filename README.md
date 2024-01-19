@@ -25,3 +25,8 @@
 [Live Demo Link (Waiting...)]()
 
 ---
+## Description
+
+### Instagram clone
+
+This Instagram clone is a full-stack web application built using Laravel 10 and Vue.js 3. Users can sign up, log in, and create posts with images, text, and locations. The app supports functionalities like liking posts, adding comments with emojis, saving favorite posts, and managing user profiles.
