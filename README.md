@@ -134,3 +134,21 @@ The Profile Page Vue.js component provides users with a comprehensive interface 
 </p>
 
 ---
+
+### Login and Register Pages 
+
+The Login and Register Pages Vue.js components provide a streamlined and user-friendly authentication experience for your web application. Built with the powerful Inertia.js framework, these components seamlessly integrate with Laravel backends, ensuring a robust and secure authentication process.
+
+## Features
+
+## Login Page
+
+- **Effortless Login:** Allow users to log in with ease using their email and password.
+- **Remember Me:** Implement a "Remember Me" functionality with a checkbox for a convenient login experience.
+- **Password Reset:** If enabled, users can reset their passwords directly from the login page.
+
+## Register Page
+
+- **User Registration:** Enable new users to sign up by providing essential details like name, email, and password.
+- **Password Confirmation:** Ensure data integrity with a password confirmation field.
+- **User-Friendly Validation:** Provide clear error messages and input validation for a smooth registration process.
