@@ -247,6 +247,30 @@ The project follows a structured directory hierarchy, with the main components o
 
 ---
 
+### Installation
+
+
+```
+git clone https://github.com/PayamAnari/instagram-clone.git
+
+composer install 
+
+cp .env.example .env 
+
+php artisan cache:clear 
+
+composer dump-autoload 
+
+php artisan key:generate
+
+composer require laravel/breeze --dev
+
+php artisan breeze:install vue --ssr
+
+php artisan serve
+```
+---
+
 ## Technologies Used
 
 ### Backend:
@@ -280,3 +304,5 @@ The project follows a structured directory hierarchy, with the main components o
   </a>
   </a>
 </p>
+
+---
