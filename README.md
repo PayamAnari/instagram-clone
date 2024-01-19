@@ -76,5 +76,5 @@ The CreatePostOverlay component is a powerful and intuitive Vue.js component des
   
   <img width="200" src="https://live.staticflickr.com/65535/53474325443_7b3ece89e5_w.jpg" alt="Image 2">
   
-  <img width="150" src="https://live.staticflickr.com/65535/53430873189_243046d450_w.jpg" alt="Image 3">
+  <img width="150" src="https://live.staticflickr.com/65535/53473276787_1f7dcbb4ef_w.jpg" alt="Image 3">
 </p>
