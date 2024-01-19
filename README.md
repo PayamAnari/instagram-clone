@@ -213,7 +213,7 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
   
   <img width="200" src="https://live.staticflickr.com/65535/53473315212_172f5d423a_n.jpg" alt="Image 2">
   
-  <img width="150" src="https://live.staticflickr.com/65535/53474216566_543f639a8d_w.jpg" alt="Image 3">
+  <img width="150" src="https://live.staticflickr.com/65535/53474640035_d1c680f58e_n.jpg" alt="Image 3">
 </p>
 
 
