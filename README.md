@@ -56,3 +56,17 @@ The Home.vue component is a dynamic and engaging Vue.js view designed to create 
 
 
 ---
+
+### CreatePostOverlay
+
+The CreatePostOverlay component is a powerful and intuitive Vue.js component designed to simplify the process of creating and sharing content within your application. Whether you're building a social media platform, a photo-sharing app, or any project requiring user-generated content, this component provides a seamless and visually appealing overlay for crafting and sharing posts.
+
+## Features
+
+- **User-Friendly Interface:** The overlay presents a user-friendly interface, allowing users to effortlessly create and share posts with minimal effort.
+- **Media Upload:** Support for uploading images directly from the user's device, providing a dynamic and engaging way to include visuals in posts.
+- **Real-Time Validation:** Receive immediate feedback on the validity of uploaded files, ensuring a smooth user experience with error messages for incorrect file formats.
+- **Rich Text Editor:** A robust text editor allows users to compose captions with ease, offering a spacious and responsive area for thoughtful content creation.
+- **Location Tagging:** Seamlessly integrate location tagging for posts, enhancing the contextual information associated with each creation.
+- **Accessibility and Advanced Settings:** The component includes options for users to enhance accessibility and configure advanced settings for their posts.
+- **Responsive Design:** The overlay adapts to various screen sizes, maintaining a consistent and visually appealing layout across devices.
