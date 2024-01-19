@@ -112,3 +112,15 @@ The User.vue component is a versatile Vue.js view designed to showcase user prof
 </p>
 
 ---
+
+### Profile Page
+
+The Profile Page Vue.js component provides users with a comprehensive interface to manage and customize their profile information seamlessly. Tailored for applications requiring user account controls, this component allows users to edit their name, email, bio, change passwords, and even delete their account.
+
+## Features
+
+- **Edit Profile Information:** Empower users to modify their profile details, including name, email, and bio, effortlessly enhancing their personalization on the platform.
+- **Change Password:** Facilitate secure account management by enabling users to update their passwords with ease, ensuring robust security practices.
+- **Email Verification Awareness:** Support email verification processes by dynamically adjusting the interface based on whether email verification is required.
+- **Delete Account Option:** Implement a straightforward account deletion mechanism, allowing users to permanently delete their accounts when needed.
+- **Responsive Design:** Ensure a seamless user experience across various devices with a responsive and user-friendly design.
