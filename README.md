@@ -207,3 +207,14 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
 - **User Interaction:** Like posts, add comments with emojis, and view existing comments.
 - **Post Options:** Users can access post options, including deleting their own posts or comments.
 - **Responsive Design:** Optimized for various screen sizes, including mobile, tablet, and large screens.
+
+<p align="center">
+  <img width="400" src="https://live.staticflickr.com/65535/53474640040_c1e5db64a3_z.jpg" alt="Image 1">
+  
+  <img width="200" src="https://live.staticflickr.com/65535/53474634375_26cbcd3d35_w.jpg" alt="Image 2">
+  
+  <img width="150" src="https://live.staticflickr.com/65535/53474216566_543f639a8d_w.jpg" alt="Image 3">
+</p>
+
+
+---
