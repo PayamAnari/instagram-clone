@@ -124,3 +124,13 @@ The Profile Page Vue.js component provides users with a comprehensive interface 
 - **Email Verification Awareness:** Support email verification processes by dynamically adjusting the interface based on whether email verification is required.
 - **Delete Account Option:** Implement a straightforward account deletion mechanism, allowing users to permanently delete their accounts when needed.
 - **Responsive Design:** Ensure a seamless user experience across various devices with a responsive and user-friendly design.
+
+<p align="center">
+  <img width="400" src="https://live.staticflickr.com/65535/53474203141_db3e9548b6_z.jpg" alt="Image 1">
+  
+  <img width="200" src="https://live.staticflickr.com/65535/53473287607_7da486dc5c_w.jpg" alt="Image 2">
+  
+  <img width="150" src="https://live.staticflickr.com/65535/53474335678_bd1b89f51c_w.jpg" alt="Image 3">
+</p>
+
+---
