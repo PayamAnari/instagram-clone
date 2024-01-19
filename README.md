@@ -93,3 +93,14 @@ The User.vue component is a versatile Vue.js view designed to showcase user prof
 - **Responsive Design:** Ensure a seamless experience across devices with a responsive design that adapts to various screen sizes and orientations.
 - **Real-Time Metrics:** Showcase real-time metrics such as the number of posts, followers, and following, providing users with valuable insights into profile activity.
 - **Post Grid View:** Explore user posts in a visually appealing grid layout, allowing for easy browsing and interaction.
+
+<p align="center">
+  <img width="400" src="https://live.staticflickr.com/65535/53474610130_3611b347cb_c.jpg" alt="Image 1">
+  
+  <img width="200" src="https://live.staticflickr.com/65535/53474320513_3cae692841_w.jpg" alt="Image 2">
+  
+  <img width="150" src="https://live.staticflickr.com/65535/53474179781_8b1a378ff6_w.jpg" alt="Image 3">
+</p>
+
+
+---
