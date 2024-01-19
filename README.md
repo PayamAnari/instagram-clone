@@ -218,3 +218,15 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
 
 
 ---
+
+### Features:
+
+- **User Authentication:** Sign up, log in, and password recovery.
+- **Post Creation:** Upload photos, write text, and share locations.
+- **Social Features:** Like posts, add comments with emojis, and save favorite posts.
+- **User Profile:** Upload profile photos, view posts, and manage profile information.
+- **Dashboard:** Change name, email, bio, password, and delete the account.
+- **Responsive Design:** Optimized for mobile, tablet, and large screens.
+- **Vue.js Components:** Utilizes Vue.js 3 and various plugins for enhanced frontend functionality.
+
+---
