@@ -155,6 +155,12 @@ The Login and Register Pages Vue.js components provide a streamlined and user-fr
 
 ## Register Page
 
+  <p align="center">
+  <img width="400" src="https://live.staticflickr.com/65535/53474348698_c057ccab1e.jpg" alt="Image 1">
+  
+  <img width="200" src="https://live.staticflickr.com/65535/53474519469_98380bbc15_n.jpg" alt="Image 2">
+</p>
+
 - **User Registration:** Enable new users to sign up by providing essential details like name, email, and password.
 - **Password Confirmation:** Ensure data integrity with a password confirmation field.
 - **User-Friendly Validation:** Provide clear error messages and input validation for a smooth registration process.
