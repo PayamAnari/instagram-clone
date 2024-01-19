@@ -33,11 +33,11 @@ This Instagram clone is a full-stack web application built using Laravel 10 and 
 
 ---
 
-### Home Page
+## Home Page
 
 The Home.vue component is a dynamic and engaging Vue.js view designed to create an immersive user experience within your application. Tailored for social media platforms or content-driven websites, this component seamlessly integrates user posts, likes, and comments, offering a visually appealing and responsive interface.
 
-## Features
+### Features
 
 - **User-Friendly Interface:** Enjoy a user-friendly interface that seamlessly combines user posts, comments, and engagement metrics for an immersive browsing experience.
 - **Interactive Carousel:** The component features a responsive carousel that showcases user profiles, allowing for easy navigation and exploration of diverse content creators.
@@ -53,13 +53,14 @@ The Home.vue component is a dynamic and engaging Vue.js view designed to create 
   
   <img width="150" src="https://live.staticflickr.com/65535/53474179781_8b1a378ff6_w.jpg" alt="Image 3">
 </p>
+
 ---
 
-### CreatePostOverlay
+## CreatePostOverlay
 
 The CreatePostOverlay component is a powerful and intuitive Vue.js component designed to simplify the process of creating and sharing content within your application. Whether you're building a social media platform, a photo-sharing app, or any project requiring user-generated content, this component provides a seamless and visually appealing overlay for crafting and sharing posts.
 
-## Features
+### Features
 
 - **User-Friendly Interface:** The overlay presents a user-friendly interface, allowing users to effortlessly create and share posts with minimal effort.
 - **Media Upload:** Support for uploading images directly from the user's device, providing a dynamic and engaging way to include visuals in posts.
@@ -79,11 +80,11 @@ The CreatePostOverlay component is a powerful and intuitive Vue.js component des
 
 ---
 
-### User Page
+## User Page
 
 The User.vue component is a versatile Vue.js view designed to showcase user profiles within your application. Tailored for social media platforms or content-driven websites, this component offers a comprehensive display of user details, including posts, bio, and follower metrics.
 
-## Features
+### Features
 
 - **Profile Overview:** Display essential user information such as username, bio, and profile picture, creating an engaging and personalized profile page.
 - **Interactive Icons:** Dynamically toggle between grid, reels, saved, and tagged views with interactive icons, enhancing user experience and navigation.
@@ -111,11 +112,11 @@ The User.vue component is a versatile Vue.js view designed to showcase user prof
 
 ---
 
-### Profile Page
+## Profile Page
 
 The Profile Page Vue.js component provides users with a comprehensive interface to manage and customize their profile information seamlessly. Tailored for applications requiring user account controls, this component allows users to edit their name, email, bio, change passwords, and even delete their account.
 
-## Features
+### Features
 
 - **Edit Profile Information:** Empower users to modify their profile details, including name, email, and bio, effortlessly enhancing their personalization on the platform.
 - **Change Password:** Facilitate secure account management by enabling users to update their passwords with ease, ensuring robust security practices.
@@ -133,11 +134,11 @@ The Profile Page Vue.js component provides users with a comprehensive interface 
 
 ---
 
-### Login and Register Pages 
+## Login and Register Pages 
 
 The Login and Register Pages Vue.js components provide a streamlined and user-friendly authentication experience for your web application. Built with the powerful Inertia.js framework, these components seamlessly integrate with Laravel backends, ensuring a robust and secure authentication process.
 
-## Features
+### Features
 
 ## Login Page
 
@@ -165,11 +166,11 @@ The Login and Register Pages Vue.js components provide a streamlined and user-fr
   
 ---
 
-### FavoritePost
+## FavoritePost
 
 The FavoritePostOverlay component is a sleek and feature-rich Vue.js component designed to showcase and interact with a user's favorite posts. Whether you're developing a social media application or any platform where users can curate and revisit their preferred content, this component provides an elegant overlay for a seamless and engaging experience.
 
-## Features
+### Features
 
 - **Visual Interaction:** Enjoy an immersive visual experience as the overlay dynamically responds to user hover actions, revealing essential engagement metrics such as likes and comments.
 - **Effortless Navigation:** Users can effortlessly click on their favorite posts to view detailed information or navigate to the full content, enhancing the overall user journey.
@@ -188,11 +189,11 @@ The FavoritePostOverlay component is a sleek and feature-rich Vue.js component d
 
 
 ---
-### Show Post
+## Show Post
 
 The ShowPost page in this Instagram clone project provides a detailed view of a post, including the post image, user details, comments, and interactive features. Users can like posts, add comments with emojis, and manage post options.
 
-## Features:
+### Features:
 
 - **Detailed Post View:** Display of the post image, user details, and creation date.
 - **User Interaction:** Like posts, add comments with emojis, and view existing comments.
@@ -219,7 +220,7 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
   
 --- 
 
-### Key Features
+## Key Features
 
 - **User Authentication:** Sign up, log in, and password recovery.
 - **Post Creation:** Upload photos, write text, and share locations.
@@ -231,7 +232,7 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
 
 ---
 
-### Installation
+## Installation
 
 
 ```
