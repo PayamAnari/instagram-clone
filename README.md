@@ -219,7 +219,17 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
 
 ---
 
-### Features:
+## Table of Contents
+- [Key Features](#key-features)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+  
+--- 
+
+### Key Features
 
 - **User Authentication:** Sign up, log in, and password recovery.
 - **Post Creation:** Upload photos, write text, and share locations.
