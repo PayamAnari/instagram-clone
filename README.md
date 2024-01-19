@@ -78,3 +78,18 @@ The CreatePostOverlay component is a powerful and intuitive Vue.js component des
   
   <img width="150" src="https://live.staticflickr.com/65535/53473276787_1f7dcbb4ef_w.jpg" alt="Image 3">
 </p>
+
+---
+
+### User Page
+
+The User.vue component is a versatile Vue.js view designed to showcase user profiles within your application. Tailored for social media platforms or content-driven websites, this component offers a comprehensive display of user details, including posts, bio, and follower metrics.
+
+## Features
+
+- **Profile Overview:** Display essential user information such as username, bio, and profile picture, creating an engaging and personalized profile page.
+- **Interactive Icons:** Dynamically toggle between grid, reels, saved, and tagged views with interactive icons, enhancing user experience and navigation.
+- **Follow and Message Options:** Facilitate user interactions with convenient "Follow" and "Message" buttons, encouraging community engagement.
+- **Responsive Design:** Ensure a seamless experience across devices with a responsive design that adapts to various screen sizes and orientations.
+- **Real-Time Metrics:** Showcase real-time metrics such as the number of posts, followers, and following, providing users with valuable insights into profile activity.
+- **Post Grid View:** Explore user posts in a visually appealing grid layout, allowing for easy browsing and interaction.
