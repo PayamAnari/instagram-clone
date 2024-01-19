@@ -164,3 +164,18 @@ The Login and Register Pages Vue.js components provide a streamlined and user-fr
 - **User Registration:** Enable new users to sign up by providing essential details like name, email, and password.
 - **Password Confirmation:** Ensure data integrity with a password confirmation field.
 - **User-Friendly Validation:** Provide clear error messages and input validation for a smooth registration process.
+  
+---
+
+### FavoritePost
+
+The FavoritePostOverlay component is a sleek and feature-rich Vue.js component designed to showcase and interact with a user's favorite posts. Whether you're developing a social media application or any platform where users can curate and revisit their preferred content, this component provides an elegant overlay for a seamless and engaging experience.
+
+## Features
+
+- **Visual Interaction:** Enjoy an immersive visual experience as the overlay dynamically responds to user hover actions, revealing essential engagement metrics such as likes and comments.
+- **Effortless Navigation:** Users can effortlessly click on their favorite posts to view detailed information or navigate to the full content, enhancing the overall user journey.
+- **Dynamic Content Display:** Display key information, including the number of likes and comments, providing users with instant insights into the popularity and engagement of their favorite posts.
+- **Customizable Design:** Tailor the appearance of the overlay to match your application's aesthetic, with customizable background colors, font styles, and icon themes.
+- **Responsive and Intuitive:** The component adapts seamlessly to various screen sizes, ensuring a consistent and intuitive user interface across devices.
+- **Vue.js Integration:** Harness the power of Vue.js to easily integrate the FavoritePostOverlay component into your application, leveraging the framework's reactivity and component-based architecture.
