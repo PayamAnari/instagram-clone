@@ -241,6 +241,12 @@ The ShowPost page in this Instagram clone project provides a detailed view of a 
 
 ---
 
+## Project Structure
+
+The project follows a structured directory hierarchy, with the main components organized as follows:
+
+---
+
 ## Technologies Used
 
 ### Backend:
