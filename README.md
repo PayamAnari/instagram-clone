@@ -281,13 +281,9 @@ php artisan serve
  
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=js,vue,tailwind,mysql,php,laravel" />
-      <a href="https://inertiajs.com/">
-    <img src="https://img.shields.io/badge/Inertia.js-3-lightblue" alt="Inertia.js">
-    <img src="https://img.shields.io/badge/Blade-Used-brightgreen" alt="Blade">
-
-  </a>
-  </a>
+    <img src="https://skillicons.dev/icons?i=js,vue,tailwind,mysql,php,laravel"/></a>
+    <img src="https://img.shields.io/badge/Inertia.js-3-lightblue" alt="Inertia.js"/>
+    <img src="https://img.shields.io/badge/Blade-Used-brightgreen" alt="Blade"/>
 </p>
 
 ---
